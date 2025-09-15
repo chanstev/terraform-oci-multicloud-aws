@@ -19,3 +19,9 @@ variable "db_source" {
   default     = "NONE"
   description = "The source of the database. Possible values are NONE, DB_BACKUP, DATABASE, or CROSS_REGION_DATAGUARD"
 }
+
+variable "auto_backup" {
+  type        = bool
+  default   = false
+  description = "Whether auto back enabled for container databases."
+}
