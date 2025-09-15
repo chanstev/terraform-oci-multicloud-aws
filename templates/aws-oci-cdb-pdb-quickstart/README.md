@@ -1,0 +1,85 @@
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.0 |
+| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb) | 0.0.1 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.5.1 |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci) | >= 6.15.0 |
+
+## Providers
+
+No providers.
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc) | aws-ia/vpc/aws | >= 4.2.0 |
+| <a name="module_cdb"></a> [cdb](#module\_cdb) | ../../modules/aws-oci-cdb | n/a |
+| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a |
+| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering) | ../../modules/aws-odb-peering | n/a |
+| <a name="module_oci_database_db_home"></a> [oci\_database\_db\_home](#module\_oci\_database\_db\_home) | ../../modules/aws-oci-db-db-home | n/a |
+| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network) | ../../modules/aws-odb-network | n/a |
+| <a name="module_odb_vm_cluster"></a> [odb\_vm\_cluster](#module\_odb\_vm\_cluster) | ../../modules/aws-odb-vmc | n/a |
+| <a name="module_pdbs"></a> [pdbs](#module\_pdbs) | ../../modules/aws-oci-pdb | n/a |
+
+## Resources
+
+No resources.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | OCI resources availability zone | `string` | n/a | yes |
+| <a name="input_aws_access_key"></a> [aws\_access\_key](#input\_aws\_access\_key) | Aws access key | `string` | `""` | no |
+| <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | Aws secret key | `string` | `""` | no |
+| <a name="input_cdb"></a> [cdb](#input\_cdb) | New container database information object | `map(string)` | `null` | no |
+| <a name="input_compute_count"></a> [compute\_count](#input\_compute\_count) | Infra compute count | `string` | n/a | yes |
+| <a name="input_db_home_display_name"></a> [db\_home\_display\_name](#input\_db\_home\_display\_name) | DB home display name | `string` | `"my_db_home"` | no |
+| <a name="input_db_home_source"></a> [db\_home\_source](#input\_db\_home\_source) | DB home source type | `string` | `"VM_CLUSTER_NEW"` | no |
+| <a name="input_db_servers"></a> [db\_servers](#input\_db\_servers) | The list of database servers to be used for VM cluster | `list(string)` | `null` | no |
+| <a name="input_db_version"></a> [db\_version](#input\_db\_version) | DB version | `string` | `"19.0.0.0"` | no |
+| <a name="input_default_dns_prefix"></a> [default\_dns\_prefix](#input\_default\_dns\_prefix) | Subnet default dns prefix | `string` | n/a | yes |
+| <a name="input_description"></a> [description](#input\_description) | A user-provided description of the Autonomous VM cluster | `string` | `null` | no |
+| <a name="input_fingerprint"></a> [fingerprint](#input\_fingerprint) | Fingerprint for OCI API Key | `string` | n/a | yes |
+| <a name="input_gi_major_version"></a> [gi\_major\_version](#input\_gi\_major\_version) | OCI VM gi version | `string` | n/a | yes |
+| <a name="input_hostname_prefix"></a> [hostname\_prefix](#input\_hostname\_prefix) | VM host name prefix to be assigned | `string` | n/a | yes |
+| <a name="input_infra_display_name"></a> [infra\_display\_name](#input\_infra\_display\_name) | OCI infra display name | `string` | n/a | yes |
+| <a name="input_infra_shape"></a> [infra\_shape](#input\_infra\_shape) | Infra shape option | `string` | n/a | yes |
+| <a name="input_is_mtls_enabled_vm_cluster"></a> [is\_mtls\_enabled\_vm\_cluster](#input\_is\_mtls\_enabled\_vm\_cluster) | Specifies whether to enable mutual TLS (mTLS) authentication for the Autonomous VM cluster | `bool` | `false` | no |
+| <a name="input_is_sparse_disk_group_enabled"></a> [is\_sparse\_disk\_group\_enabled](#input\_is\_sparse\_disk\_group\_enabled) | Whether sparse disk group enabled to storage | `bool` | `false` | no |
+| <a name="input_is_vm_local_backup_enabled"></a> [is\_vm\_local\_backup\_enabled](#input\_is\_vm\_local\_backup\_enabled) | Whether local backup enabled for VM | `bool` | `false` | no |
+| <a name="input_license_model"></a> [license\_model](#input\_license\_model) | The Oracle license model to apply to the Autonomous VM cluster | `string` | `"pay-per-use/call pricing"` | no |
+| <a name="input_maintenance_window"></a> [maintenance\_window](#input\_maintenance\_window) | The maintenance window configuration for the Autonomous VM Cluster | <pre>object({<br/>    custom_action_timeout_in_mins    = number<br/>    days_of_week                     = list(string)<br/>    hours_of_day                     = list(number)<br/>    is_custom_action_timeout_enabled = bool<br/>    lead_time_in_weeks               = number<br/>    months                           = list(string)<br/>    patching_mode                    = string<br/>    preference                       = string<br/>    skip_ru                          = bool<br/>    weeks_of_month                   = list(number)<br/>  })</pre> | `null` | no |
+| <a name="input_network_display_name"></a> [network\_display\_name](#input\_network\_display\_name) | Display name for the autonomous VM cluster | `string` | n/a | yes |
+| <a name="input_network_s3_access"></a> [network\_s3\_access](#input\_network\_s3\_access) | S3 access permission string | `string` | n/a | yes |
+| <a name="input_network_s3_policy_document"></a> [network\_s3\_policy\_document](#input\_network\_s3\_policy\_document) | s3 policy document as string | `string` | n/a | yes |
+| <a name="input_network_tags"></a> [network\_tags](#input\_network\_tags) | OCI network meta tags | `map(string)` | n/a | yes |
+| <a name="input_network_zero_etl_access"></a> [network\_zero\_etl\_access](#input\_network\_zero\_etl\_access) | Network etl access string | `string` | n/a | yes |
+| <a name="input_pdbs"></a> [pdbs](#input\_pdbs) | A map encapsulating PDB(s) database details | <pre>map(object({<br/>    pdb_name = string<br/>    pdb_admin_password = string<br/>    pdb_wallet_password = string<br/>  }))</pre> | n/a | yes |
+| <a name="input_private_key_path"></a> [private\_key\_path](#input\_private\_key\_path) | Path to the OCI private API key file | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | AWS Region | `string` | `"us-east-1"` | no |
+| <a name="input_s3_access"></a> [s3\_access](#input\_s3\_access) | S3 access permission string | `string` | n/a | yes |
+| <a name="input_scan_listener_port_non_tls"></a> [scan\_listener\_port\_non\_tls](#input\_scan\_listener\_port\_non\_tls) | The SCAN listener port for non-TLS (TCP) protocol | `number` | `null` | no |
+| <a name="input_scan_listener_port_tls"></a> [scan\_listener\_port\_tls](#input\_scan\_listener\_port\_tls) | The SCAN listener port for TLS (TCP) protocol | `number` | `null` | no |
+| <a name="input_storage_count"></a> [storage\_count](#input\_storage\_count) | Infra storage count | `string` | n/a | yes |
+| <a name="input_subnet_availability_zone"></a> [subnet\_availability\_zone](#input\_subnet\_availability\_zone) | AWS subnet availability zone | `string` | n/a | yes |
+| <a name="input_subnet_backup_cidr"></a> [subnet\_backup\_cidr](#input\_subnet\_backup\_cidr) | Subnet backup bcidr range | `string` | n/a | yes |
+| <a name="input_subnet_main_cidr"></a> [subnet\_main\_cidr](#input\_subnet\_main\_cidr) | Subnet backup bcidr range | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | Resource tags for the autonomous VM cluster | `map(string)` | `null` | no |
+| <a name="input_tenancy_ocid"></a> [tenancy\_ocid](#input\_tenancy\_ocid) | OCI Tenancy OCID | `string` | n/a | yes |
+| <a name="input_time_zone"></a> [time\_zone](#input\_time\_zone) | The time zone to use for the Autonomous VM cluster | `string` | `null` | no |
+| <a name="input_user_ocid"></a> [user\_ocid](#input\_user\_ocid) | OCI User OCID | `string` | n/a | yes |
+| <a name="input_vm_cpu_core_count"></a> [vm\_cpu\_core\_count](#input\_vm\_cpu\_core\_count) | Number of cpur cores to be assigned to VM cluster | `number` | n/a | yes |
+| <a name="input_vm_display_name"></a> [vm\_display\_name](#input\_vm\_display\_name) | VM display name | `string` | n/a | yes |
+| <a name="input_vm_ssh_public_keys"></a> [vm\_ssh\_public\_keys](#input\_vm\_ssh\_public\_keys) | VM ssh public key to be attached | `list(string)` | `[]` | no |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | Vpc CIDR range | `string` | n/a | yes |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of vpc inside AWS | `string` | n/a | yes |
+| <a name="input_vpc_private_subnet_cidr"></a> [vpc\_private\_subnet\_cidr](#input\_vpc\_private\_subnet\_cidr) | Vpc private CIDR range | `string` | n/a | yes |
+
+## Outputs
+
+No outputs.
