@@ -13,9 +13,15 @@ variable "vm_cluster_display_name" {
   description = "Display name for the VM cluster"
 }
 
+variable "gi_version" {
+  type        = string
+  description = "GI version for the VM cluster"
+}
+
 variable "gi_major_version" {
   type        = string
   description = "GI major version for the VM cluster"
+  default = null
 }
 
 variable "hostname_prefix" {
@@ -46,7 +52,11 @@ variable "data_collection_options" {
     isIncidentLogsEnabled = bool
   })
   description = "Data collection options for the VM cluster"
-  default     = null
+  default     = {
+    isDiagnosticsEventsEnabled = false
+    isHealthMonitoringEnabled = false
+    isIncidentLogsEnabled = false
+  }
 }
 
 variable "data_storage_size_in_tbs" {

@@ -17,3 +17,8 @@ variable "db_home_source" {
   description = "The source of DB home. e.g. VM_CLUSTER_NEW"
   type = string
 }
+variable "db_system_id" {
+  description = "The db server system id"
+  type = string
+  default = null
+}
