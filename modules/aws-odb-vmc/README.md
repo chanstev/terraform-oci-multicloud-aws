@@ -38,11 +38,11 @@ No modules.
 | <a name="input_db_servers"></a> [db\_servers](#input\_db\_servers)                                                              | The set of database servers to be used for the VM cluster | `set(string)` | n/a     |   yes    |
 | <a name="input_tags"></a> [tags](#input\_tags)                                                                                  | Resource tags for the VM cluster                          | `map(string)` | `null`  |    no    |
 | <a name="input_is_local_backup_enabled"></a> [is\_local\_backup\_enabled](#input\_is\_local\_backup\_enabled)                   | Whether local backup is enabled for the VM cluster        | `bool`        | `false` |    no    |
-| <a name="input_is_sparse_disk_group_enabled"></a> [is\_sparse\_disk\_group\_enabled](#input\_is\_sparse\_disk\_group\_enabled)  | Whether sparse disk group is enabled for the VM cluster   | `bool`        | `false` |    no    |
+| <a name="input_is_sparse_diskgroup_enabled"></a> [is\_sparse\_diskgroup\_enabled](#input\_is\_sparse\_diskgroup\_enabled)       | Whether sparse disk group is enabled for the VM cluster   | `bool`        | `false` |    no    |
 | <a name="input_license_model"></a> [license\_model](#input\_license\_model)                                                     | License model for the VM cluster                          | `string`      | `null`  |    no    |
 | <a name="input_memory_size_in_gbs"></a> [memory\_size\_in\_gbs](#input\_memory\_size\_in\_gbs)                                  | Memory size in tbs for the VM cluster                     | `number`      | `null`  |    no    |
 | <a name="input_time_zone"></a> [time\_zone](#input\_time\_zone)                                                                 | The time zone to use for the VM cluster                   | `string`      | `null`  |    no    |
-| <a name="input_scan_listener_port_tls"></a> [scan\_listener\_port\_tls](#input\_scan\_listener\_port\_tls)                      | The SCAN listener port for TLS (TCP) protocol             | `number`      | `null`  |    no    |
+| <a name="input_scan_listener_port_tcp"></a> [scan\_listener\_port\_tcp](#input\_scan\_listener\_port\_tcp)                      | The SCAN listener port for TLS (TCP) protocol             | `number`      | `null`  |    no    |
 
 ## Outputs
 
@@ -53,5 +53,4 @@ No modules.
 | <a name="output_vm_cluster_ocid"></a> [vm\_cluster\_ocid](#output\_vm\_cluster\_ocid)                                 | VM Cluster OCID           |
 | <a name="output_vm_cluster_oci_url"></a> [vm\_cluster\_oci\_url](#output\_vm\_cluster\_oci\_url)                      | VM Cluster OCI URL        |
 | <a name="output_vm_cluster_arn"></a> [vm\_cluster\_arn](#output\_vm\_cluster\_arn)                                    | VM Cluster ARN            |
-| <a name="output_vm_cluster_compartment_id"></a> [vm\_cluster\_compartment\_id](#output\_vm\_cluster\_compartment\_id) | VM Cluster Compartment ID |
 <!-- END_TF_DOCS -->

@@ -18,9 +18,9 @@ resource "aws_odb_cloud_vm_cluster" "this" {
   db_servers                      = var.db_servers
   tags                            = var.tags
   is_local_backup_enabled         = var.is_local_backup_enabled
-  is_sparse_disk_group_enabled    = var.is_sparse_disk_group_enabled
+  is_sparse_diskgroup_enabled     = var.is_sparse_diskgroup_enabled
   license_model                   = var.license_model
   memory_size_in_gbs              = var.memory_size_in_gbs
   timezone                        = var.time_zone
-  scan_listener_port_tls          = var.scan_listener_port_tls
+  scan_listener_port_tcp          = var.scan_listener_port_tcp
 }
