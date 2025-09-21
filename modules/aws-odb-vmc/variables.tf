@@ -101,12 +101,6 @@ variable "memory_size_in_gbs" {
   default     = null
 }
 
-variable "system_version" {
-  type        = string
-  description = "System version for the VM cluster"
-  default     = null
-}
-
 variable "time_zone" {
   type        = string
   description = "The time zone to use for the VM cluster"

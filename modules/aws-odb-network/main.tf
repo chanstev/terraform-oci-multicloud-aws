@@ -8,5 +8,6 @@ resource "aws_odb_network" "this" {
   default_dns_prefix          = var.aws_odb_network_default_dns_prefix
   s3_access                   = var.aws_odb_network_s3_access
   zero_etl_access             = var.aws_odb_network_zero_etl_access
+  s3_policy_document          = var.aws_odb_network_s3_policy_document
   tags                        = var.tags
 }

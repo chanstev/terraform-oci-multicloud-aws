@@ -41,6 +41,12 @@ variable "aws_odb_network_zero_etl_access" {
   type        = string
 }
 
+variable "aws_odb_network_s3_policy_document" {
+  description = "The s3 policy document for Amazon S3 access from the ODB network"
+  type        = string
+  default     = null
+}
+
 variable "tags" {
   description = "Resource tags for the Exadata Infrastructure"
   type        = map(string)

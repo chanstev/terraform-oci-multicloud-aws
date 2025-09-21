@@ -21,7 +21,6 @@ resource "aws_odb_cloud_vm_cluster" "this" {
   is_sparse_disk_group_enabled    = var.is_sparse_disk_group_enabled
   license_model                   = var.license_model
   memory_size_in_gbs              = var.memory_size_in_gbs
-  system_version                  = var.system_version
   timezone                        = var.time_zone
   scan_listener_port_tls          = var.scan_listener_port_tls
 }

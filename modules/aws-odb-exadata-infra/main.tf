@@ -18,7 +18,6 @@ resource "aws_odb_cloud_exadata_infrastructure" "this" {
     months                           = var.maintenance_window_months
     patching_mode                    = var.maintenance_window_patching_mode
     preference                       = var.maintenance_window_preference
-    skip_ru                          = var.maintenance_window_skip_ru
     weeks_of_month                   = var.maintenance_window_weeks_of_month
   }
 }

@@ -84,11 +84,6 @@ variable "maintenance_window_preference" {
   description = "Maintenance window preference"
 }
 
-variable "maintenance_window_skip_ru" {
-  type        = bool
-  description = "Whether to skip the RU for the Maintenance window"
-  default     = false
-}
 
 variable "maintenance_window_weeks_of_month" {
   type        = set(number)
