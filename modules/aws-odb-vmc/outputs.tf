@@ -17,3 +17,13 @@ output "vm_cluster_oci_url" {
   value       = aws_odb_cloud_vm_cluster.this.oci_url
   description = "VM Cluster OCI URL"
 }
+
+output "vm_cluster_arn" {
+  value       = aws_odb_cloud_vm_cluster.this.arn
+  description = "VM Cluster ARN"
+}
+
+output "vm_cluster_compartment_id" {
+  value       = aws_odb_cloud_vm_cluster.this.compartment_id
+  description = "VM Cluster Compartment ID"
+}
