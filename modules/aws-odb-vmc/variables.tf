@@ -18,12 +18,6 @@ variable "gi_version" {
   description = "GI version for the VM cluster"
 }
 
-variable "gi_major_version" {
-  type        = string
-  description = "GI major version for the VM cluster"
-  default = null
-}
-
 variable "hostname_prefix" {
   type        = string
   description = "Hostname prefix for the VM cluster"
@@ -45,18 +39,19 @@ variable "cluster_name" {
   default     = null
 }
 
-variable "data_collection_options" {
-  type        = object({
-    isDiagnosticsEventsEnabled = bool
-    isHealthMonitoringEnabled = bool
-    isIncidentLogsEnabled = bool
-  })
-  description = "Data collection options for the VM cluster"
-  default     = {
-    isDiagnosticsEventsEnabled = false
-    isHealthMonitoringEnabled = false
-    isIncidentLogsEnabled = false
-  }
+variable "is_diagnostics_events_enabled" {
+  type        = bool
+  description = "Whether diagnostics events is enabled for the VM cluster"
+}
+
+variable "is_health_monitoring_enabled" {
+  type        = bool
+  description = "Whether health monitoring is enabled for the VM cluster"
+}
+
+variable "is_incident_logs_enabled" {
+  type        = bool
+  description = "Whether incident logs is enabled for the VM cluster"
 }
 
 variable "data_storage_size_in_tbs" {
