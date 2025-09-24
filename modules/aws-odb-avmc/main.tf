@@ -15,5 +15,12 @@ resource "aws_odb_cloud_autonomous_vm_cluster" "this" {
   is_mtls_enabled_vm_cluster             = var.is_mtls_enabled_vm_cluster
   scan_listener_port_non_tls             = var.scan_listener_port_non_tls
   scan_listener_port_tls                 = var.scan_listener_port_tls
-  maintenance_window                     = var.maintenance_window
+  maintenance_window {
+        days_of_week                     = var.maintenance_window_days_of_week
+        hours_of_day                     = var.maintenance_window_hours_of_day
+        lead_time_in_weeks               = var.maintenance_window_lead_time_in_weeks
+        months                           = var.maintenance_window_months
+        preference                       = var.maintenance_window_preference
+        weeks_of_month                   = var.maintenance_window_weeks_of_month
+  }
 }

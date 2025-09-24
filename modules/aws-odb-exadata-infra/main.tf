@@ -9,5 +9,15 @@ resource "aws_odb_cloud_exadata_infrastructure" "this" {
   storage_count                    = var.storage_count
   customer_contacts_to_send_to_oci = length(var.customer_contacts_to_send_to_oci) > 0 ? var.customer_contacts_to_send_to_oci : null
   tags                             = var.tags
-  maintenance_window               = var.maintenance_window
+  maintenance_window {
+    custom_action_timeout_in_mins    = var.maintenance_window_custom_action_timeout_in_mins
+    days_of_week                     = var.maintenance_window_days_of_week
+    hours_of_day                     = var.maintenance_window_hours_of_day
+    is_custom_action_timeout_enabled = var.maintenance_window_is_custom_action_timeout_enabled
+    lead_time_in_weeks               = var.maintenance_window_lead_time_in_weeks
+    months                           = var.maintenance_window_months
+    patching_mode                    = var.maintenance_window_patching_mode
+    preference                       = var.maintenance_window_preference
+    weeks_of_month                   = var.maintenance_window_weeks_of_month
+  }
 }
