@@ -75,7 +75,7 @@ module "odb_vm_cluster" {
   hostname_prefix              = var.hostname_prefix
   ssh_public_keys              = var.vm_ssh_public_keys
   aws_odb_network_resource_id  = module.odb_network.aws_odb_network_resource_id
-  db_servers                   = var.db_servers == null ? [for dbs in data.oci_database_db_servers.db_servers.db_servers : dbs.id] : var.db_servers
+  db_servers                   = var.db_servers
   is_local_backup_enabled      = var.is_vm_local_backup_enabled
   is_sparse_diskgroup_enabled = var.is_sparse_diskgroup_enabled
   data_storage_size_in_tbs = var.data_storage_size_in_tbs

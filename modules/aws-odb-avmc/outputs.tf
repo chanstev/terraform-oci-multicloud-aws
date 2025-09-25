@@ -27,3 +27,8 @@ output "avm_cluster_status" {
   value       = aws_odb_cloud_autonomous_vm_cluster.this.status
   description = "AVM Cluster Status"
 }
+
+output "avm_cluster_oci_compartment_ocid" {
+  description = "AVM Cluster compartment OCID in OCI"
+  value       = regex("(?:compartmentId=)([^?&/]+)", aws_odb_cloud_autonomous_vm_cluster.this.oci_url)[0]
+}
