@@ -1,44 +1,118 @@
-*This repository acts as a template for all of Oracle’s GitHub repositories. It contains information about the guidelines for those repositories. All files and sections contained in this template are mandatory, and a GitHub app ensures alignment with these guidelines. To get started with a new repository, replace the italic paragraphs with the respective text for your project.*
+# OCI Multicloud Landing Zone for AWS
 
-# Project name
+![Landing Zone logo](./images/landing_zone_300.png)
 
-*Describe your project's features, functionality and target audience*
+## Overview
 
-## Installation
+A collection of [terraform modules](https://developer.hashicorp.com/terraform/language/modules), templates and tutorials that helps you provision Oracle Database@AWS and related components via Infrastructure as Code (IaC).
 
-*Provide detailed step-by-step installation instructions. You can name this section **How to Run** or **Getting Started** instead of **Installation** if that's more acceptable for your project*
+## Prerequisites
 
-## Documentation
+To use the Terraform modules and templates in your environment, you must install the following software on the system from which you execute the terraform plans:
 
-*Developer-oriented documentation can be published on GitHub, but all product documentation must be published on <https://docs.oracle.com>*
+- [Terraform](https://developer.hashicorp.com/terraform/install) or [OpenTofu](https://opentofu.org/docs/intro/)
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
+- [AWS terraform provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+- [OCI terraform provider](https://registry.terraform.io/providers/oracle/oci/latest/docs)
 
-## Examples
+## Templates
+These module automates the provisioning of components for running Oracle Database@AWS. Each template can run independently and default input values are configured which can be overridden per customer's preferences.
+- [Quickstart for Autonomous Database](./templates/aws-oci-adbd-quickstart/README.md)
+- [Quickstart for CDB/PDB](./templates/aws-oci-cdb-pdb-quickstart/README.md)
 
-*Describe any included examples or provide a link to a demo/tutorial*
+## Execution
+Navigate into the `templates` directory.
+
+**Note:** The Terraform state file writes to the directory from where you execute plans. You should keep this file in case you want to use Terraform to modify the environment configuration later. Refer to the Terraform documentation for more persistent and shareable ways to save state.
+
+### Initialization
+
+When running for first time, initialize the workspace directory using:
+
+Terraform:
+
+``` shell
+terraform init
+```
+
+OpenTofu:
+
+``` shell
+tofu init
+```
+
+### Application
+
+To validate changes described without applying
+
+Terraform:
+
+``` shell
+terraform plan
+```
+
+OpenTofu:
+
+``` shell
+tofu plan
+```
+
+To apply changes and create resources
+
+Terraform:
+
+``` shell
+terraform apply
+```
+
+OpenTofu:
+
+``` shell
+tofu apply
+```
+
+### Destruction
+
+To remove all resources created in above steps, run destroy:
+
+Terraform:
+
+``` shell
+terraform destroy
+```
+
+OpenTofu:
+
+``` shell
+tofu destroy
+```
+
+## Further Documentation
+
+### Terraform Provider
+- [Oracle Cloud Infrastructure Provider](https://registry.terraform.io/providers/oracle/oci/latest/docs)
+- [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+### Terraform Modules
+- [OCI Landing Zones](https://github.com/oci-landing-zones/)
+
+**Acknowledgement:** Code derived adapted from samples, examples and documentations provided by above-mentioned providers.
 
 ## Help
 
-*Inform users on where to get help or how to receive official support from Oracle (if applicable)*
+Open an [issue](https://github.com/oci-landing-zones/terraform-oci-multicloud-aws/issues) in this repository.
 
 ## Contributing
 
-*If your project has specific contribution requirements, update the CONTRIBUTING.md file to ensure those requirements are clearly explained*
-
-This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
+This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md).
 
 ## Security
 
-Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
+Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process.
 
 ## License
 
-*The correct copyright notice format for both documentation and software is*
-    "Copyright (c) [year,] year Oracle and/or its affiliates."
-*You must include the year the content was first released (on any platform) and the most recent year in which it was revised*
+Copyright (c) 2025 Oracle and/or its affiliates.
 
-Copyright (c) 2023 Oracle and/or its affiliates.
-
-*Replace this statement if your project is not licensed under the UPL*
-
-Released under the Universal Permissive License v1.0 as shown at
-<https://oss.oracle.com/licenses/upl/>.
+Released under the Universal Permissive License v1.0 as shown at <https://oss.oracle.com/licenses/upl/>.
