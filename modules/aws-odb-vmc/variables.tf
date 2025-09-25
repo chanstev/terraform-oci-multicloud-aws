@@ -69,6 +69,7 @@ variable "db_node_storage_size_in_gbs" {
 variable "db_servers" {
   type        = set(string)
   description = "The set of database servers IDs to be used for the VM cluster"
+  default     = null
 }
 
 variable "tags" {

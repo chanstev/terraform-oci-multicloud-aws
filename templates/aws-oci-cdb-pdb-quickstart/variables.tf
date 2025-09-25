@@ -79,75 +79,61 @@ variable "infra_shape" {
 variable "storage_count" {
   type        = string
   description = "Infra storage count"
+  default     = null
 }
 
 variable "compute_count" {
   type        = string
   description = "Infra compute count"
+  default     = null
 }
 
-variable "maintenance_window" {
-  description = "The maintenance window configuration for the Exadata infrastructure"
-  type = object({
-    custom_action_timeout_in_mins    = number
-    days_of_week                     = set(string)
-    hours_of_day                     = set(number)
-    is_custom_action_timeout_enabled = bool
-    lead_time_in_weeks               = number
-    months                           = set(string)
-    patching_mode                    = string
-    preference                       = string
-    skip_ru                          = bool
-    weeks_of_month                   = set(number)
-  })
+variable "maintenance_window_preference" {
+  type        = string
+  description = "Maintenance window preference"
 }
 
 #==================================ODB network vars==============================
 variable "network_display_name" {
   type        = string
-  description = "Display name for the autonomous VM cluster"
+  description = "Display name for ODB Network"
 }
 
 variable "subnet_main_cidr" {
   type        = string
-  description = "Subnet backup bcidr range"
+  description = "Subnet client cidr range"
 }
 variable "subnet_backup_cidr" {
   type        = string
   description = "Subnet backup bcidr range"
+  default     = null
 }
 
 variable "default_dns_prefix" {
   type        = string
   description = "Subnet default dns prefix"
+  default     = null
 }
 
 variable "network_tags" {
   type        = map(string)
   description = "OCI network meta tags"
+  default     = null
 }
 
 variable "network_s3_access" {
   type        = string
   description = "S3 access permission string"
-  default = null
 }
 
 variable "network_zero_etl_access" {
   type        = string
   description = "Network etl access string"
-  default = null
 }
 
 variable "network_s3_policy_document" {
   type        = string
   description = "s3 policy document as string"
-  default = null
-}
-
-variable "s3_access" {
-  type        = string
-  description = "S3 access permission string"
   default = null
 }
 
@@ -173,9 +159,8 @@ variable "hostname_prefix" {
 }
 
 variable "vm_ssh_public_keys" {
-  type        = list(string)
-  description = "VM ssh public key to be attached"
-  default     = []
+  type        = set(string)
+  description = "Set of VM ssh public keys to be attached"
 }
 
 variable "is_vm_local_backup_enabled" {
@@ -184,52 +169,37 @@ variable "is_vm_local_backup_enabled" {
   default     = false
 }
 
-variable "is_sparse_disk_group_enabled" {
+variable "is_sparse_diskgroup_enabled" {
   type        = bool
   description = "Whether sparse disk group enabled to storage"
   default     = false
 }
 
-variable "description" {
-  type        = string
-  description = "A user-provided description of the Autonomous VM cluster"
-  default     = null
+variable "is_diagnostics_events_enabled" {
+  type        = bool
+  description = "Whether diagnostics events is enabled for the VM cluster"
+}
+
+variable "is_health_monitoring_enabled" {
+  type        = bool
+  description = "Whether health monitoring is enabled for the VM cluster"
+}
+
+variable "is_incident_logs_enabled" {
+  type        = bool
+  description = "Whether incident logs is enabled for the VM cluster"
 }
 
 variable "tags" {
   type        = map(string)
-  description = "Resource tags for the autonomous VM cluster"
-  default     = null
-}
-
-variable "time_zone" {
-  type        = string
-  description = "The time zone to use for the Autonomous VM cluster"
+  description = "Resource tags for the VM cluster"
   default     = null
 }
 
 variable "license_model" {
   type        = string
-  description = "The Oracle license model to apply to the Autonomous VM cluster"
+  description = "The Oracle license model to apply to the VM cluster"
   default     = "pay-per-use/call pricing"
-}
-
-variable "is_mtls_enabled_vm_cluster" {
-  type        = bool
-  description = "Specifies whether to enable mutual TLS (mTLS) authentication for the Autonomous VM cluster"
-  default     = false
-}
-
-variable "scan_listener_port_non_tls" {
-  type        = number
-  description = "The SCAN listener port for non-TLS (TCP) protocol"
-  default     = null
-}
-
-variable "scan_listener_port_tls" {
-  type        = number
-  description = "The SCAN listener port for TLS (TCP) protocol"
-  default     = null
 }
 
 variable "data_storage_size_in_tbs" {
@@ -243,9 +213,22 @@ variable "db_node_storage_size_in_gbs" {
   description = "DB node storage size in gbs for the VM cluster"
   default     = null
 }
+
 variable "memory_size_in_gbs" {
   type        = number
   description = "Memory size in gbs for the VM cluster"
+  default     = null
+}
+
+variable "db_servers" {
+  type        = set(string)
+  description = "The set of database servers IDs to be used for the VM cluster"
+  default     = null
+}
+
+variable "scan_listener_port_tcp" {
+  type        = number
+  description = "The SCAN listener port for TLS (TCP) protocol"
   default     = null
 }
 

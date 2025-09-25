@@ -33,7 +33,9 @@ module "exadata_infrastructure" {
   compute_count                          = var.compute_count
   storage_count                          = var.storage_count
   tags                                   = var.tags
-  maintenance_window                     = var.maintenance_window
+  maintenance_window {
+    preference                       = var.infra_maintenance_window_preference
+  }
 }
 
 #Create odb network
@@ -73,5 +75,6 @@ module "autonomous_vm_cluster" {
   is_mtls_enabled_vm_cluster = var.is_mtls_enabled_vm_cluster
   scan_listener_port_non_tls = var.scan_listener_port_non_tls
   scan_listener_port_tls = var.scan_listener_port_tls
-  maintenance_window = var.vm_maintenance_window
-}
+  maintenance_window {
+    preference                       = var.maintenance_window_preference
+  }}

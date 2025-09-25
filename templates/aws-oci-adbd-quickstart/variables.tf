@@ -86,20 +86,9 @@ variable "compute_count" {
   description = "Infra compute count"
 }
 
-variable "maintenance_window" {
-  description = "The maintenance window configuration for the Exadata infrastructure"
-  type = object({
-    custom_action_timeout_in_mins    = number
-    days_of_week                     = set(string)
-    hours_of_day                     = set(number)
-    is_custom_action_timeout_enabled = bool
-    lead_time_in_weeks               = number
-    months                           = set(string)
-    patching_mode                    = string
-    preference                       = string
-    skip_ru                          = bool
-    weeks_of_month                   = set(number)
-  })
+variable "infra_maintenance_window_preference" {
+  type        = string
+  description = "Maintenance window preference for the exa infra"
 }
 
 #==================================ODB network vars==============================
@@ -110,11 +99,11 @@ variable "network_display_name" {
 
 variable "subnet_main_cidr" {
   type        = string
-  description = "Subnet backup bcidr range"
+  description = "Subnet client cidr range"
 }
 variable "subnet_backup_cidr" {
   type        = string
-  description = "Subnet backup bcidr range"
+  description = "Subnet backup cidr range"
 }
 
 variable "default_dns_prefix" {
@@ -140,11 +129,6 @@ variable "network_zero_etl_access" {
 variable "network_s3_policy_document" {
   type        = string
   description = "s3 policy document as string"
-}
-
-variable "s3_access" {
-  type        = string
-  description = "S3 access permission string"
 }
 
 #============================Autonomous VM cluster vars============================
@@ -184,24 +168,14 @@ variable "scan_listener_port_tls" {
   description = "The SCAN listener port for TLS (TCP) protocol"
 }
 
-
-
-
 variable "vm_display_name" {
   type        = string
   description = "VM display name"
 }
 
-
 variable "db_servers" {
-  type        = list(string)
-  description = "The list of database servers to be used for VM cluster"
-  default     = null
-}
-
-variable "description" {
-  type        = string
-  description = "A user-provided description of the Autonomous VM cluster"
+  type        = set(string)
+  description = "The set of database servers IDs to be used for VM cluster"
   default     = null
 }
 
@@ -211,35 +185,16 @@ variable "tags" {
   default     = null
 }
 
-variable "time_zone" {
-  type        = string
-  description = "The time zone to use for the Autonomous VM cluster"
-  default     = null
-}
-
 variable "license_model" {
   type        = string
   description = "The Oracle license model to apply to the Autonomous VM cluster"
   default     = "pay-per-use/call pricing"
 }
 
-variable "vm_maintenance_window" {
-  description = "The maintenance window configuration for the Autonomous VM Cluster"
-  type = object({
-    custom_action_timeout_in_mins    = number
-    days_of_week                     = list(string)
-    hours_of_day                     = list(number)
-    is_custom_action_timeout_enabled = bool
-    lead_time_in_weeks               = number
-    months                           = list(string)
-    patching_mode                    = string
-    preference                       = string
-    skip_ru                          = bool
-    weeks_of_month                   = list(number)
-  })
-  default = null
+variable "maintenance_window_preference" {
+  type        = string
+  description = "Maintenance window preference for the AVMC"
 }
-
 #===============================Create Autonomous DB vars=================================
 /*variable "ad_admin_password" {
   type        = string
