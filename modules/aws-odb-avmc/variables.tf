@@ -35,7 +35,8 @@ variable "cpu_core_count_per_node" {
 
 variable "db_servers" {
   type        = set(string)
-  description = "The set of database servers to be used for the Autonomous VM cluster"
+  description = "The set of database servers IDs to be used for the Autonomous VM cluster"
+  default     = null
 }
 
 variable "description" {

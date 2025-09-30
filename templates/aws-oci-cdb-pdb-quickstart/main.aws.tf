@@ -33,7 +33,9 @@ module "exadata_infrastructure" {
   compute_count                          = var.compute_count
   storage_count                          = var.storage_count
   tags                                   = var.tags
-  maintenance_window                     = var.maintenance_window
+  maintenance_window {
+    preference                       = var.maintenance_window_preference
+  }
 }
 
 #Create odb network
@@ -73,16 +75,17 @@ module "odb_vm_cluster" {
   hostname_prefix              = var.hostname_prefix
   ssh_public_keys              = var.vm_ssh_public_keys
   aws_odb_network_resource_id  = module.odb_network.aws_odb_network_resource_id
-  db_servers                   = [for dbs in data.oci_database_db_servers.db_servers.db_servers : dbs.id] #var.db_servers
+  db_servers                   = var.db_servers
   is_local_backup_enabled      = var.is_vm_local_backup_enabled
-  is_sparse_disk_group_enabled = var.is_sparse_disk_group_enabled
-  data_storage_size_in_tbs = var.data_storage_size_in_tbs #TB
-  memory_size_in_gbs = var.memory_size_in_gbs #GB
-  db_node_storage_size_in_gbs = var.db_node_storage_size_in_gbs #GB
+  is_sparse_diskgroup_enabled = var.is_sparse_diskgroup_enabled
+  data_storage_size_in_tbs = var.data_storage_size_in_tbs
+  memory_size_in_gbs = var.memory_size_in_gbs
+  db_node_storage_size_in_gbs = var.db_node_storage_size_in_gbs
   license_model                = var.license_model
-  data_collection_options = {
-    isDiagnosticsEventsEnabled = false
-    isHealthMonitoringEnabled = false
-    isIncidentLogsEnabled = false
+  data_collection_options {
+    is_diagnostics_events_enabled = var.is_diagnostics_events_enabled
+    is_health_monitoring_enabled  = var.is_health_monitoring_enabled
+    is_incident_logs_enabled      = var.is_incident_logs_enabled
   }
+  scan_listener_port_tcp          = var.scan_listener_port_tcp
 }

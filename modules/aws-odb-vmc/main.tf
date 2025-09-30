@@ -1,4 +1,8 @@
 # Create the VM cluster
+data "aws_odb_db_servers" "this" {
+  cloud_exadata_infrastructure_id = var.aws_odb_exa_resource_id
+}
+
 resource "aws_odb_cloud_vm_cluster" "this" {
   cloud_exadata_infrastructure_id = var.aws_odb_exa_resource_id
   cpu_core_count                  = var.cpu_core_count
@@ -15,7 +19,7 @@ resource "aws_odb_cloud_vm_cluster" "this" {
   }
   data_storage_size_in_tbs        = var.data_storage_size_in_tbs
   db_node_storage_size_in_gbs     = var.db_node_storage_size_in_gbs
-  db_servers                      = var.db_servers
+  db_servers                      = var.db_servers == null ? [for db_server in data.aws_odb_db_servers.this.db_servers : db_server.id] : var.db_servers
   tags                            = var.tags
   is_local_backup_enabled         = var.is_local_backup_enabled
   is_sparse_diskgroup_enabled     = var.is_sparse_diskgroup_enabled

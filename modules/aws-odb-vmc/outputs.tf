@@ -22,3 +22,8 @@ output "vm_cluster_arn" {
   value       = aws_odb_cloud_vm_cluster.this.arn
   description = "VM Cluster ARN"
 }
+
+output "vm_cluster_oci_compartment_ocid" {
+  description = "VM Cluster compartment OCID in OCI"
+  value       = regex("(?:compartmentId=)([^?&/]+)", aws_odb_cloud_vm_cluster.this.oci_url)[0]
+}

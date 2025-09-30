@@ -1,4 +1,8 @@
 # Create the autonomous VM cluster
+data "aws_odb_db_servers" "this" {
+  cloud_exadata_infrastructure_id = var.aws_odb_exa_resource_id
+}
+
 resource "aws_odb_cloud_autonomous_vm_cluster" "this" {
   display_name                           = var.autonomous_vm_cluster_display_name
   cloud_exadata_infrastructure_id        = var.aws_odb_exa_resource_id
@@ -7,7 +11,7 @@ resource "aws_odb_cloud_autonomous_vm_cluster" "this" {
   memory_per_oracle_compute_unit_in_gbs  = var.memory_per_oracle_compute_unit_in_gbs
   total_container_databases              = var.total_container_databases
   cpu_core_count_per_node                = var.cpu_core_count_per_node
-  db_servers                             = var.db_servers
+  db_servers                             = var.db_servers == null ? [for db_server in data.aws_odb_db_servers.this.db_servers : db_server.id] : var.db_servers
   description                            = var.description
   tags                                   = var.tags
   time_zone                              = var.time_zone
