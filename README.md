@@ -10,7 +10,7 @@ A collection of [terraform modules](https://developer.hashicorp.com/terraform/la
 
 To use the Terraform modules and templates in your environment, you must install the following software on the system from which you execute the terraform plans:
 
-- [Terraform](https://developer.hashicorp.com/terraform/install) or [OpenTofu](https://opentofu.org/docs/intro/)
+- [Terraform](https://developer.hashicorp.com/terraform/install)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm)
 - [AWS terraform provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
@@ -36,12 +36,6 @@ Terraform:
 terraform init
 ```
 
-OpenTofu:
-
-``` shell
-tofu init
-```
-
 ### Application
 
 To validate changes described without applying
@@ -52,24 +46,12 @@ Terraform:
 terraform plan
 ```
 
-OpenTofu:
-
-``` shell
-tofu plan
-```
-
 To apply changes and create resources
 
 Terraform:
 
 ``` shell
 terraform apply
-```
-
-OpenTofu:
-
-``` shell
-tofu apply
 ```
 
 ### Destruction
@@ -80,12 +62,6 @@ Terraform:
 
 ``` shell
 terraform destroy
-```
-
-OpenTofu:
-
-``` shell
-tofu destroy
 ```
 
 ## Further Documentation
