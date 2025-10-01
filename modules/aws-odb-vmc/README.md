@@ -46,11 +46,12 @@ No modules.
 
 ## Outputs
 
-| Name                                                                                                                  | Description               |
-|-----------------------------------------------------------------------------------------------------------------------|---------------------------|
-| <a name="output_vm_cluster_id"></a> [vm\_cluster\_id](#output\_vm\_cluster\_id)                                       | VM Cluster ID             |
-| <a name="output_vm_cluster_display_name"></a> [vm\_cluster\_display\_name](#output\_vm\_cluster\_display\_name)       | VM Cluster Display Name   |
-| <a name="output_vm_cluster_ocid"></a> [vm\_cluster\_ocid](#output\_vm\_cluster\_ocid)                                 | VM Cluster OCID           |
-| <a name="output_vm_cluster_oci_url"></a> [vm\_cluster\_oci\_url](#output\_vm\_cluster\_oci\_url)                      | VM Cluster OCI URL        |
-| <a name="output_vm_cluster_arn"></a> [vm\_cluster\_arn](#output\_vm\_cluster\_arn)                                    | VM Cluster ARN            |
+| Name                                                                                                                                      | Description                        |
+|-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| <a name="output_vm_cluster_id"></a> [vm\_cluster\_id](#output\_vm\_cluster\_id)                                                           | VM Cluster ID                      |
+| <a name="output_vm_cluster_display_name"></a> [vm\_cluster\_display\_name](#output\_vm\_cluster\_display\_name)                           | VM Cluster Display Name            |
+| <a name="output_vm_cluster_ocid"></a> [vm\_cluster\_ocid](#output\_vm\_cluster\_ocid)                                                     | VM Cluster OCID                    |
+| <a name="output_vm_cluster_oci_url"></a> [vm\_cluster\_oci\_url](#output\_vm\_cluster\_oci\_url)                                          | VM Cluster OCI URL                 |
+| <a name="output_vm_cluster_arn"></a> [vm\_cluster\_arn](#output\_vm\_cluster\_arn)                                                        | VM Cluster ARN                     |
+| <a name="output_vm_cluster_oci_compartment_ocid"></a> [vm\_cluster\_oci\_compartment\_ocid](#output\_vm\_cluster\_oci\_compartment\_ocid) | VM Cluster compartment OCID in OCI |
 <!-- END_TF_DOCS -->
