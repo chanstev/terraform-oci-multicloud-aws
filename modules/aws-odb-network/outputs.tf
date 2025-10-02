@@ -18,7 +18,3 @@ output "aws_odb_network_managed_services" {
   value       = aws_odb_network.this.managed_services
 }
 
-output "aws_odb_network_oci_compartment_ocid" {
-  description = "ODB Network compartment OCID in OCI"
-  value       = regex("(?:compartmentId=)([^?&/]+)", aws_odb_network.this.oci_vcn_url)[0]
-}
