@@ -1,4 +1,4 @@
-# aws-oci-cdb
+# oci-db-cdb
 This module provision CDB @ OCI
 
 <!-- BEGIN_TF_DOCS -->

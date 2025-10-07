@@ -1,6 +1,6 @@
 # Set database home in newly created vm cluster
 module "oci_database_db_home" {
-  source          = "../../modules/aws-oci-db-db-home"
+  source          = "../../modules/oci-db-dbhome"
   depends_on = [
     module.odb_vm_cluster
   ]
@@ -11,7 +11,7 @@ module "oci_database_db_home" {
 }
 
 module "cdb" {
-  source              = "../../modules/aws-oci-cdb"
+  source              = "../../modules/oci-db-cdb"
   depends_on = [
     module.oci_database_db_home
   ]
@@ -26,7 +26,7 @@ module "pdbs" {
   depends_on = [
     module.cdb
   ]
-  source              = "../../modules/aws-oci-pdb"
+  source              = "../../modules/oci-db-pdb"
   container_database_ocid = module.cdb.cdb_id
   pdb_details = var.pdbs
 }

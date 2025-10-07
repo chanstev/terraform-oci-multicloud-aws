@@ -1,4 +1,4 @@
-# aws-oci-adbd
+# oci-db-adb
 This module provision Autonomous DBD @ OCI
 
 <!-- BEGIN_TF_DOCS -->

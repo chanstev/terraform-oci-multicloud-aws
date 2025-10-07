@@ -1,4 +1,4 @@
-# aws-oci-pdb
+# oci-db-pdb
 This module provision PDB @ OCI
 
 <!-- BEGIN_TF_DOCS -->

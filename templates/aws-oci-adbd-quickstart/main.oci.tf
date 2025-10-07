@@ -12,7 +12,7 @@ module "auto_cdb" {
 }
 
 module "pdbs" {
-  source              = "../../modules/aws-oci-pdb"
+  source              = "../../modules/oci-db-pdb"
   depends_on = [ module.auto_cdb ]
   container_database_ocid = module.auto_cdb.cdb_id
   pdb_details = var.pdbs

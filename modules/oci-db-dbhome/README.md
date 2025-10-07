@@ -1,4 +1,4 @@
-# aws-oci-db-db-home
+# oci-db-dbhome
 This module provision database DB home @ OCI
 
 <!-- BEGIN_TF_DOCS -->
