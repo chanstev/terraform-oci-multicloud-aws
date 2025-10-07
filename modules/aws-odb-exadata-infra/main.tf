@@ -7,7 +7,7 @@ resource "aws_odb_cloud_exadata_infrastructure" "this" {
   storage_server_type              = var.exa_infra_shape == "Exadata.X11M" ? "X11M-HC" : null
   compute_count                    = var.compute_count
   storage_count                    = var.storage_count
-  customer_contacts_to_send_to_oci = length(var.customer_contacts_to_send_to_oci) > 0 ? var.customer_contacts_to_send_to_oci : null
+  customer_contacts_to_send_to_oci = var.customer_contacts_to_send_to_oci == "" ? null: var.customer_contacts_to_send_to_oci
   tags                             = var.tags
   maintenance_window {
     custom_action_timeout_in_mins    = var.maintenance_window_custom_action_timeout_in_mins
