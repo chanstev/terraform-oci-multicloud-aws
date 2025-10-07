@@ -1,5 +1,5 @@
 # oci-db-dbhome
-This module provision database DB home @ OCI
+This module provision Database Home via OCI interface
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers
