@@ -37,7 +37,7 @@ variable "tags" {
 variable "maintenance_window_custom_action_timeout_in_mins" {
   type        = number
   description = "Maintenance window Custom action timeout in mins"
-  default     = null
+  default     = 15
 }
 
 variable "maintenance_window_days_of_week" {
