@@ -1,5 +1,5 @@
 variable "exa_infra_display_name" {
-  description = "Name of the exa infra. Use Ofake to create ofake resource else real exa will be provisioned."
+  description = "Name of the Exadata infrastructure."
   type        = string
 }
 variable "aws_odb_exa_infra_availability_zone_id" {
@@ -7,18 +7,19 @@ variable "aws_odb_exa_infra_availability_zone_id" {
   type        = string
 }
 variable "exa_infra_shape" {
-  description = "The shape model name of the Exadata infrastructure"
+  description = "The shape model name of the Exadata infrastructure, default is Exadata.X11M"
   type        = string
+  default     = "Exadata.X11M"
 }
 variable "compute_count" {
-  description = "The compute count of the Exadata infrastructure"
+  description = "The compute count of the Exadata infrastructure, default is 2"
   type        = number
-  default     = null
+  default     = 2
 }
 variable "storage_count" {
-  description = "The storage count of the Exadata infrastructure"
+  description = "The storage count of the Exadata infrastructure, default is 3"
   type        = number
-  default     = null
+  default     = 3
 }
 variable "customer_contacts_to_send_to_oci" {
   description = "The email addresses used by Oracle to send notifications regarding the Exadata infrastructure"
@@ -76,12 +77,13 @@ variable "maintenance_window_months" {
 variable "maintenance_window_patching_mode" {
   type        = string
   description = "Maintenance window patching mode"
-  default     = null
+  default     = "ROLLING"
 }
 
 variable "maintenance_window_preference" {
   type        = string
-  description = "Maintenance window preference"
+  description = "Maintenance window preference, valid values are NO_PREFERENCE, CUSTOM_PREFERENCE"
+  default     = "NO_PREFERENCE"
 }
 
 
