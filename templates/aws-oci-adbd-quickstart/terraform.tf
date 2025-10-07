@@ -4,12 +4,11 @@ terraform {
     # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 6.0"
+      version = ">= 6.15.0"
     }
     # https://registry.terraform.io/providers/oracle/oci/latest/docs
     oci = {
       source  = "oracle/oci"
-      version = ">= 6.15.0"
     }
     # https://registry.terraform.io/providers/hashicorp/local/latest/docs
     local = {
