@@ -1,5 +1,5 @@
-# aws-oci-pdb
-This module provision PDB @ OCI
+# oci-db-pdb
+This module provision Pluggable Database (PDB) via OCI interface.
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers

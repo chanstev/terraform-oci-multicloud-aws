@@ -22,7 +22,7 @@ No providers.
 | <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a |
 | <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering) | ../../modules/aws-odb-peering | n/a |
 | <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network) | ../../modules/aws-odb-network | n/a |
-| <a name="module_pdbs"></a> [pdbs](#module\_pdbs) | ../../modules/aws-oci-pdb | n/a |
+| <a name="module_pdbs"></a> [pdbs](#module\_pdbs) | ../../modules/oci-db-pdb | n/a |
 
 ## Resources
 

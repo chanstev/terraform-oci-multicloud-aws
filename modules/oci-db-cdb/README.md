@@ -1,5 +1,5 @@
-# aws-oci-cdb
-This module provision CDB @ OCI
+# oci-db-cdb
+This module provision Container Database (CDB) via OCI interface
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers
