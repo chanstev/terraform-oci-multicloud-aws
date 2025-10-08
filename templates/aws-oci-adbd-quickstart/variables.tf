@@ -4,11 +4,6 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "oci_region" {
-  description = "OCI Region"
-  type        = string
-}
-
 # AWS access key
 variable "aws_access_key" {
   type        = string
