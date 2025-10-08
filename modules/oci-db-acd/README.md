@@ -1,4 +1,4 @@
-# aws-oci-acd
+# oci-db-acd
 This module provision ACD @ OCI
 
 <!-- BEGIN_TF_DOCS -->

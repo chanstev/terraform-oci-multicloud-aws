@@ -1,6 +1,6 @@
 # Create autonomous Container Database
 module "acd" {
-  source = "../../modules/aws-oci-acd"
+  source = "../../modules/oci-db-acd"
   depends_on = [ module.autonomous_vm_cluster ]
   acd_display_name = var.acd_display_name
   acd_patch_model = var.acd_patch_model
@@ -9,7 +9,7 @@ module "acd" {
 
 # Create the Autonomous Database
 module "adbd" {
-  source              = "../../modules/aws-oci-adbd"
+  source              = "../../modules/oci-db-adb"
   depends_on = [ module.acd ]
   admin_password           = var.ad_admin_password
   compartment_ocid         = module.exadata_infrastructure.oci_compartment_ocid

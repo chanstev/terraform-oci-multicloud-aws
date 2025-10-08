@@ -16,7 +16,7 @@ No providers.
 
 | Name                                                                                                     | Source                              | Version  |
 |----------------------------------------------------------------------------------------------------------|-------------------------------------|----------|
-| <a name="module_acd"></a> [acd](#module\_acd)                                                            | ../../modules/aws-oci-acd           | n/a      |
+| <a name="module_acd"></a> [acd](#module\_acd)                                                            | ../../modules/oci-db-acd            | n/a      |
 | <a name="module_autonomous_vm_cluster"></a> [autonomous\_vm\_cluster](#module\_autonomous\_vm\_cluster)  | ../../modules/aws-odb-avmc          | n/a      |
 | <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc)                                   | aws-ia/vpc/aws                      | >= 4.2.0 |
 | <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a      |
