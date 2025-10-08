@@ -1,12 +1,12 @@
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.0 |
-| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb) | 0.0.1 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.5.1 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | >= 6.15.0 |
+| Name                                                                      | Version   |
+|---------------------------------------------------------------------------|-----------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0    |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws)                   | >= 6.0    |
+| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb)       | 0.0.1     |
+| <a name="requirement_local"></a> [local](#requirement\_local)             | >= 2.5.1  |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci)                   | >= 6.15.0 |
 
 ## Providers
 
@@ -14,15 +14,15 @@ No providers.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_auto_cdb"></a> [auto\_cdb](#module\_auto\_cdb) | ../../modules/aws-oci-auto-cdb | n/a |
-| <a name="module_autonomous_vm_cluster"></a> [autonomous\_vm\_cluster](#module\_autonomous\_vm\_cluster) | ../../modules/aws-odb-avmc | n/a |
-| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc) | aws-ia/vpc/aws | >= 4.2.0 |
-| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a |
-| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering) | ../../modules/aws-odb-peering | n/a |
-| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network) | ../../modules/aws-odb-network | n/a |
-| <a name="module_pdbs"></a> [pdbs](#module\_pdbs) | ../../modules/aws-oci-pdb | n/a |
+| Name                                                                                                     | Source                              | Version  |
+|----------------------------------------------------------------------------------------------------------|-------------------------------------|----------|
+| <a name="module_auto_cdb"></a> [auto\_cdb](#module\_auto\_cdb)                                           | ../../modules/aws-oci-acd           | n/a      |
+| <a name="module_autonomous_vm_cluster"></a> [autonomous\_vm\_cluster](#module\_autonomous\_vm\_cluster)  | ../../modules/aws-odb-avmc          | n/a      |
+| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc)                                   | aws-ia/vpc/aws                      | >= 4.2.0 |
+| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a      |
+| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering)                      | ../../modules/aws-odb-peering       | n/a      |
+| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network)                                  | ../../modules/aws-odb-network       | n/a      |
+| <a name="module_pdbs"></a> [pdbs](#module\_pdbs)                                                         | ../../modules/aws-oci-pdb           | n/a      |
 
 ## Resources
 
@@ -32,10 +32,6 @@ No resources.
 
 | Name                                                                                                                                                          | Description                                                                                             | Type                                                                                                                                 | Default                      | Required |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------|:--------:|
-| <a name="input_auto_cdb_database_db_name"></a> [auto\_cdb\_database\_db\_name](#input\_auto\_cdb\_database\_db\_name)                                         | The name of the database                                                                                | `string`                                                                                                                             | `null`                       |    no    |
-| <a name="input_auto_cdb_db_source"></a> [auto\_cdb\_db\_source](#input\_auto\_cdb\_db\_source)                                                                | The source of the database. Possible values are NONE, DB\_BACKUP, DATABASE, or CROSS\_REGION\_DATAGUARD | `string`                                                                                                                             | `"NONE"`                     |    no    |
-| <a name="input_auto_cdb_db_unique_name"></a> [auto\_cdb\_db\_unique\_name](#input\_auto\_cdb\_db\_unique\_name)                                               | The unique name of the database                                                                         | `string`                                                                                                                             | `null`                       |    no    |
-| <a name="input_auto_cdb_db_version"></a> [auto\_cdb\_db\_version](#input\_auto\_cdb\_db\_version)                                                             | The source of the database. Possible values are NONE, DB\_BACKUP, DATABASE, or CROSS\_REGION\_DATAGUARD | `string`                                                                                                                             | `"NONE"`                     |    no    |
 | <a name="input_auto_cdb_display_name"></a> [auto\_cdb\_display\_name](#input\_auto\_cdb\_display\_name)                                                       | The display name of the autonomous CDB                                                                  | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_auto_cdb_patch_model"></a> [auto\_cdb\_patch\_model](#input\_auto\_cdb\_patch\_model)                                                          | Patch model of the autonomous CDB                                                                       | `string`                                                                                                                             | `"RELEASE_UPDATES"`          |    no    |
 | <a name="input_autonomous_data_storage_size_in_tbs"></a> [autonomous\_data\_storage\_size\_in\_tbs](#input\_autonomous\_data\_storage\_size\_in\_tbs)         | Number of autonomous data storage size in tbs for the autonomous VM cluster                             | `number`                                                                                                                             | n/a                          |   yes    |

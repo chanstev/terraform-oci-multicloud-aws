@@ -278,29 +278,6 @@ variable "auto_cdb_patch_model" {
   default = "RELEASE_UPDATES" #Possible values: RELEASE_UPDATES, RELEASE_UPDATE_REVISIONS
 }
 
-variable "auto_cdb_database_db_name" {
-  type        = string
-  description = "The name of the database"
-  default = null
-}
-
-variable "auto_cdb_db_unique_name" {
-  type        = string
-  description = "The unique name of the database"
-  default = null
-}
-
-variable "auto_cdb_db_version" {
-  type        = string
-  default     = "NONE"
-  description = "The source of the database. Possible values are NONE, DB_BACKUP, DATABASE, or CROSS_REGION_DATAGUARD"
-}
-
-variable "auto_cdb_db_source" {
-  type        = string
-  default     = "NONE"
-  description = "The source of the database. Possible values are NONE, DB_BACKUP, DATABASE, or CROSS_REGION_DATAGUARD"
-}
 #================================Exadata cdb pdb vars==============================
 
 
