@@ -196,7 +196,7 @@ variable "maintenance_window_preference" {
   description = "Maintenance window preference for the AVMC"
 }
 #===============================Create Autonomous DB vars=================================
-/*variable "ad_admin_password" {
+variable "ad_admin_password" {
   type        = string
   description = "VM display name"
 }
@@ -221,7 +221,7 @@ variable "ad_data_storage_size_in_tbs" {
   type        = number
   description = "VM display name"
 }
-
+/*
 variable "ad_db_version" {
   type        = string
   description = "VM display name"
@@ -265,16 +265,16 @@ variable "db_home_display_name" {
 }
 */
 
-#================================Create autonomous CDB vars =======================
+#================================Create autonomous Container Database vars =======================
 
-variable "auto_cdb_display_name" {
+variable "acd_display_name" {
   type        = string
-  description = "The display name of the autonomous CDB"
+  description = "The display name of the autonomous Container Database"
 }
 
-variable "auto_cdb_patch_model" {
+variable "acd_patch_model" {
   type        = string
-  description = "Patch model of the autonomous CDB"
+  description = "Patch model of the autonomous Container Database"
   default = "RELEASE_UPDATES" #Possible values: RELEASE_UPDATES, RELEASE_UPDATE_REVISIONS
 }
 

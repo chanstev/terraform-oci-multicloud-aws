@@ -1,15 +1,25 @@
+<<<<<<< HEAD
 # Create autonomous CDB 
 module "auto_cdb" {
+=======
+# Create autonomous Container Database
+module "acd" {
+>>>>>>> 7e54a4d (Add ACDB module)
   source = "../../modules/aws-oci-acd"
   depends_on = [ module.autonomous_vm_cluster ]
-  auto_cdb_display_name = var.auto_cdb_display_name
-  auto_cdb_patch_model = var.auto_cdb_patch_model
+  acd_display_name = var.acd_display_name
+  acd_patch_model = var.acd_patch_model
   autonomous_vm_cluster_id = module.autonomous_vm_cluster.avm_cluster_ocid
 }
 
-module "pdbs" {
-  source              = "../../modules/aws-oci-pdb"
-  depends_on = [ module.auto_cdb ]
-  container_database_ocid = module.auto_cdb.acd_id
-  pdb_details = var.pdbs
+# Create the Autonomous Database
+module "adbd" {
+  source              = "../../modules/aws-oci-adbd"
+  depends_on = [ module.acd ]
+  admin_password           = var.ad_admin_password
+  compartment_ocid         = module.exadata_infrastructure.oci_compartment_ocid
+  db_name                  = var.ad_db_name
+  compute_model            = var.ad_compute_model
+  compute_count            = var.ad_compute_count
+  data_storage_size_in_tbs = var.ad_data_storage_size_in_tbs
 }
