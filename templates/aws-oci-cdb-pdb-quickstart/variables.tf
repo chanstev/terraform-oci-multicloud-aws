@@ -1,7 +1,12 @@
-variable "region" {
+variable "aws_region" {
   description = "AWS Region"
   type        = string
   default     = "us-east-1"
+}
+
+variable "oci_region" {
+  description = "OCI Region"
+  type        = string
 }
 
 # AWS access key
