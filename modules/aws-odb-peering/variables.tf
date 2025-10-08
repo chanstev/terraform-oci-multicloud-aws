@@ -10,7 +10,8 @@ variable "peer_network_id" {
 
 variable "display_name" {
   type        = string
-  description = "Display name of the ODB Peering connection"
+  description = "Display name of the ODB Peering connection (optional)"
+  default     = null
 }
 
 variable "tags" {
