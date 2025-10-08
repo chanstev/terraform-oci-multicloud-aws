@@ -1,4 +1,4 @@
-# Create the OCI ADBD
+# Create the OCI Autonomous Database
 resource "oci_database_autonomous_database" "this" {
   admin_password              = var.admin_password
   compartment_id              = var.compartment_ocid

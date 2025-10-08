@@ -1,5 +1,5 @@
-# aws-oci-db-db-home
-This module provision database DB home @ OCI
+# oci-db-dbhome
+This module provision Database Home via OCI interface
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers

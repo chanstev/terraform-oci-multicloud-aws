@@ -1,12 +1,12 @@
 # aws-odb-network
-This module provision ODB Network @ AWS
+This module provision ODB Network for Oracle Database@AWS
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers
 
 | Name                                              | Version |
 |---------------------------------------------------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a     |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=6.15.0 |
 
 ## Modules
 

@@ -191,7 +191,7 @@ variable "license_model" {
   default     = "pay-per-use/call pricing"
 }
 
-variable "maintenance_window_preference" {
+variable "avmc_maintenance_window_preference" {
   type        = string
   description = "Maintenance window preference for the AVMC"
 }
