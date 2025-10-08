@@ -34,61 +34,27 @@ variable "tags" {
   default     = null
 }
 
-variable "maintenance_window_custom_action_timeout_in_mins" {
-  type        = number
-  description = "Maintenance window Custom action timeout in mins"
-  default     = 15
-}
-
-variable "maintenance_window_days_of_week" {
-  type        = set(object({
-    name = string
-  }))
-  description = "Maintenance window days of week"
-  default     = null
-}
-
-variable "maintenance_window_hours_of_day" {
-  type        = set(number)
-  description = "Maintenance window hours of day"
-  default     = null
-}
-
-variable "maintenance_window_is_custom_action_timeout_enabled" {
-  type        = bool
-  description = "Whether custom action timeout is enabled for the maintenance window"
-  default     = false
-}
-
-variable "maintenance_window_lead_time_in_weeks" {
-  type        = number
-  description = "Maintenance window lead time in weeks"
-  default     = null
-}
-
-variable "maintenance_window_months" {
-  type        = set(object({
-    name = string
-  }))
-  description = "Maintenance window months"
-  default     = null
-}
-
-variable "maintenance_window_patching_mode" {
-  type        = string
-  description = "Maintenance window patching mode"
-  default     = "ROLLING"
-}
-
-variable "maintenance_window_preference" {
-  type        = string
-  description = "Maintenance window preference, valid values are NO_PREFERENCE, CUSTOM_PREFERENCE"
-  default     = "NO_PREFERENCE"
-}
-
-
-variable "maintenance_window_weeks_of_month" {
-  type        = set(number)
-  description = "Maintenance window weeks of month"
-  default     = null
+variable "maintenance_window" {
+  description = "Maintenance window configuration for the Exadata Infrastructure"
+  type = object({
+    patching_mode                    = string
+    preference                       = string
+    is_custom_action_timeout_enabled = optional(bool)
+    custom_action_timeout_in_mins    = optional(number)
+    days_of_week = optional(set(object(
+      { name = string }
+    )))
+    hours_of_day       = optional(set(number))
+    lead_time_in_weeks = optional(number)
+    months = optional(set(object(
+      { name = string }
+    )))
+    weeks_of_month = optional(set(number))
+  })
+  default = {
+    patching_mode                    = "ROLLING"
+    preference                       = "NO_PREFERENCE"
+    is_custom_action_timeout_enabled = false
+    custom_action_timeout_in_mins    = 15
+  }
 }

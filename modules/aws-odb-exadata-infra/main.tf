@@ -10,14 +10,14 @@ resource "aws_odb_cloud_exadata_infrastructure" "this" {
   customer_contacts_to_send_to_oci = var.customer_contacts_to_send_to_oci == "" ? null: var.customer_contacts_to_send_to_oci
   tags                             = var.tags
   maintenance_window {
-    custom_action_timeout_in_mins    = var.maintenance_window_custom_action_timeout_in_mins
-    days_of_week                     = var.maintenance_window_days_of_week
-    hours_of_day                     = var.maintenance_window_hours_of_day
-    is_custom_action_timeout_enabled = var.maintenance_window_is_custom_action_timeout_enabled
-    lead_time_in_weeks               = var.maintenance_window_lead_time_in_weeks
-    months                           = var.maintenance_window_months
-    patching_mode                    = var.maintenance_window_patching_mode
-    preference                       = var.maintenance_window_preference
-    weeks_of_month                   = var.maintenance_window_weeks_of_month
+    patching_mode                    = var.maintenance_window.patching_mode
+    preference                       = var.maintenance_window.preference
+    lead_time_in_weeks               = var.maintenance_window.lead_time_in_weeks
+    is_custom_action_timeout_enabled = var.maintenance_window.is_custom_action_timeout_enabled
+    custom_action_timeout_in_mins    = var.maintenance_window.custom_action_timeout_in_mins
+    days_of_week                     = coalesce(var.maintenance_window.days_of_week,[])
+    hours_of_day                     = coalesce(var.maintenance_window.hours_of_day,[])
+    months                           = coalesce(var.maintenance_window.months,[])
+    weeks_of_month                   = coalesce(var.maintenance_window.weeks_of_month,[])
   }
 }
