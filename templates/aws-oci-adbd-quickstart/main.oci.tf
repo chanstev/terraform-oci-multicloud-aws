@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-# Create autonomous CDB 
-module "auto_cdb" {
-=======
 # Create autonomous Container Database
 module "acd" {
->>>>>>> 7e54a4d (Add ACDB module)
   source = "../../modules/aws-oci-acd"
   depends_on = [ module.autonomous_vm_cluster ]
   acd_display_name = var.acd_display_name
