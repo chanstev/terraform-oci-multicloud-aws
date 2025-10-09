@@ -10,7 +10,10 @@
 
 ## Providers
 
-No providers.
+| Name                                              | Version  |
+|---------------------------------------------------|----------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=6.15.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | n/a      |
 
 ## Modules
 
@@ -62,7 +65,6 @@ No resources.
 | <a name="input_scan_listener_port_non_tls"></a> [scan\_listener\_port\_non\_tls](#input\_scan\_listener\_port\_non\_tls)                                      | The SCAN listener port for non-TLS (TCP) protocol                                          | `number`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_scan_listener_port_tls"></a> [scan\_listener\_port\_tls](#input\_scan\_listener\_port\_tls)                                                    | The SCAN listener port for TLS (TCP) protocol                                              | `number`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_storage_count"></a> [storage\_count](#input\_storage\_count)                                                                                   | Infra storage count                                                                        | `string`                                                                                                                             | n/a                          |   yes    |
-| <a name="input_subnet_availability_zone"></a> [subnet\_availability\_zone](#input\_subnet\_availability\_zone)                                                | AWS subnet availability zone                                                               | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_subnet_backup_cidr"></a> [subnet\_backup\_cidr](#input\_subnet\_backup\_cidr)                                                                  | Subnet backup cidr range                                                                   | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_subnet_main_cidr"></a> [subnet\_main\_cidr](#input\_subnet\_main\_cidr)                                                                        | Subnet client cidr range                                                                   | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_tags"></a> [tags](#input\_tags)                                                                                                                | Resource tags for the autonomous VM cluster                                                | `map(string)`                                                                                                                        | `null`                       |    no    |
@@ -70,10 +72,19 @@ No resources.
 | <a name="input_total_container_databases"></a> [total\_container\_databases](#input\_total\_container\_databases)                                             | total number of container databases for the autonomous VM cluster                          | `number`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_user_ocid"></a> [user\_ocid](#input\_user\_ocid)                                                                                               | OCI User OCID                                                                              | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_vm_display_name"></a> [vm\_display\_name](#input\_vm\_display\_name)                                                                           | VM display name                                                                            | `string`                                                                                                                             | n/a                          |   yes    |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr)                                                                                                  | Vpc CIDR range                                                                             | `string`                                                                                                                             | n/a                          |   yes    |
-| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name)                                                                                                  | Name of vpc inside AWS                                                                     | `string`                                                                                                                             | n/a                          |   yes    |
-| <a name="input_vpc_private_subnet_cidr"></a> [vpc\_private\_subnet\_cidr](#input\_vpc\_private\_subnet\_cidr)                                                 | Vpc private CIDR range                                                                     | `string`                                                                                                                             | n/a                          |   yes    |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id)                                                                                                        | VPC ID                                                                                     | `string`                                                                                                                             | n/a                          |   yes    |
 
 ## Outputs
 
-No outputs.
+| Name                                                                                                                          | Description                       |
+|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| <a name="output_aws_odb_exa_resource_id"></a> [aws\_odb\_exa\_resource\_id](#output\_aws\_odb\_exa\_resource\_id)             | Exadata Infrastructure ID in AWS  |
+| <a name="output_exa_resource_ocid"></a> [exa\_resource\_ocid](#output\_exa\_resource\_ocid)                                   | Exadata Infrastructure OCID       |
+| <a name="output_aws_odb_network_resource_id"></a> [aws\_odb\_network\_resource\_id](#output\_aws\_odb\_network\_resource\_id) | Resource ID of ODB network in AWS |
+| <a name="output_aws_odb_network_oci_vcn_id"></a> [aws\_odb\_network\_oci\_vcn\_id](#output\_aws\_odb\_network\_oci\_vcn\_id)  | AWS ODB network OCI id            |
+| <a name="output_odb_peering_connection"></a> [odb\_peering\_connection](#output\_odb\_peering\_connection)                    | ODB Peering Connection            |
+| <a name="output_avm_cluster_id"></a> [avm\_cluster\_id](#output\_avm\_cluster\_id)                                            | AVM Cluster ID                    |
+| <a name="output_avm_cluster_ocid"></a> [avm\_cluster\_ocid](#output\_avm\_cluster\_ocid)                                      | AVM Cluster OCID                  |
+| <a name="output_acd_id"></a> [acd\_id](#output\_acd\_id)                                                                      | The OCID of the created ACD       |
+| <a name="output_db_id"></a> [aws\_db\_id](#output\_db\_id)                                                                    | The OCID of the created ADBD      |
+<!-- END_TF_DOCS -->

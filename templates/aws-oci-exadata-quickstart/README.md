@@ -1,29 +1,32 @@
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.0 |
-| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb) | 0.0.1 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.5.1 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | >= 6.15.0 |
+| Name                                                                      | Version   |
+|---------------------------------------------------------------------------|-----------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0    |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws)                   | >= 6.0    |
+| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb)       | 0.0.1     |
+| <a name="requirement_local"></a> [local](#requirement\_local)             | >= 2.5.1  |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci)                   | >= 6.15.0 |
 
 ## Providers
 
-No providers.
+| Name                                              | Version  |
+|---------------------------------------------------|----------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=6.15.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | n/a      |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc) | aws-ia/vpc/aws | >= 4.2.0 |
-| <a name="module_cdb"></a> [cdb](#module\_cdb) | ../../modules/oci-db-cdb | n/a |
-| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a |
-| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering) | ../../modules/aws-odb-peering | n/a |
-| <a name="module_oci_database_db_home"></a> [oci\_database\_db\_home](#module\_oci\_database\_db\_home) | ../../modules/oci-db-dbhome | n/a |
-| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network) | ../../modules/aws-odb-network | n/a |
-| <a name="module_odb_vm_cluster"></a> [odb\_vm\_cluster](#module\_odb\_vm\_cluster) | ../../modules/aws-odb-vmc | n/a |
-| <a name="module_pdbs"></a> [pdbs](#module\_pdbs) | ../../modules/oci-db-pdb | n/a |
+| Name                                                                                                     | Source                              | Version  |
+|----------------------------------------------------------------------------------------------------------|-------------------------------------|----------|
+| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc)                                   | aws-ia/vpc/aws                      | >= 4.2.0 |
+| <a name="module_cdb"></a> [cdb](#module\_cdb)                                                            | ../../modules/oci-db-cdb            | n/a      |
+| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a      |
+| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering)                      | ../../modules/aws-odb-peering       | n/a      |
+| <a name="module_oci_database_db_home"></a> [oci\_database\_db\_home](#module\_oci\_database\_db\_home)   | ../../modules/oci-db-dbhome         | n/a      |
+| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network)                                  | ../../modules/aws-odb-network       | n/a      |
+| <a name="module_odb_vm_cluster"></a> [odb\_vm\_cluster](#module\_odb\_vm\_cluster)                       | ../../modules/aws-odb-vmc           | n/a      |
+| <a name="module_pdbs"></a> [pdbs](#module\_pdbs)                                                         | ../../modules/oci-db-pdb            | n/a      |
 
 ## Resources
 
@@ -69,7 +72,6 @@ No resources.
 | <a name="input_private_key_path"></a> [private\_key\_path](#input\_private\_key\_path)                                          | Path to the OCI private API key file                             | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_scan_listener_port_tcp"></a> [scan\_listener\_port\_tcp](#input\_scan\_listener\_port\_tcp)                      | The SCAN listener port for TLS (TCP) protocol                    | `number`                                                                                                                             | `null`                       |    no    |
 | <a name="input_storage_count"></a> [storage\_count](#input\_storage\_count)                                                     | Infra storage count                                              | `string`                                                                                                                             | `null`                       |    no    |
-| <a name="input_subnet_availability_zone"></a> [subnet\_availability\_zone](#input\_subnet\_availability\_zone)                  | AWS subnet availability zone                                     | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_subnet_backup_cidr"></a> [subnet\_backup\_cidr](#input\_subnet\_backup\_cidr)                                    | Subnet backup bcidr range                                        | `string`                                                                                                                             | `null`                       |    no    |
 | <a name="input_subnet_main_cidr"></a> [subnet\_main\_cidr](#input\_subnet\_main\_cidr)                                          | Subnet client cidr range                                         | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_tags"></a> [tags](#input\_tags)                                                                                  | Resource tags for the VM cluster                                 | `map(string)`                                                                                                                        | `null`                       |    no    |
@@ -78,10 +80,20 @@ No resources.
 | <a name="input_vm_cpu_core_count"></a> [vm\_cpu\_core\_count](#input\_vm\_cpu\_core\_count)                                     | Number of CPU Cores to be assigned to VM cluster                 | `number`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_vm_display_name"></a> [vm\_display\_name](#input\_vm\_display\_name)                                             | VM display name                                                  | `string`                                                                                                                             | n/a                          |   yes    |
 | <a name="input_vm_ssh_public_keys"></a> [vm\_ssh\_public\_keys](#input\_vm\_ssh\_public\_keys)                                  | Set of VM ssh public keys to be attached                         | `set(string)`                                                                                                                        | n/a                          |   yes    |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr)                                                                    | Vpc CIDR range                                                   | `string`                                                                                                                             | n/a                          |   yes    |
-| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name)                                                                    | Name of vpc inside AWS                                           | `string`                                                                                                                             | n/a                          |   yes    |
-| <a name="input_vpc_private_subnet_cidr"></a> [vpc\_private\_subnet\_cidr](#input\_vpc\_private\_subnet\_cidr)                   | Vpc private CIDR range                                           | `string`                                                                                                                             | n/a                          |   yes    |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id)                                                                          | VPC ID                                                           | `string`                                                                                                                             | n/a                          |   yes    |
 
 ## Outputs
 
-No outputs.
+| Name                                                                                                                          | Description                                      |
+|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| <a name="output_aws_odb_exa_resource_id"></a> [aws\_odb\_exa\_resource\_id](#output\_aws\_odb\_exa\_resource\_id)             | Exadata Infrastructure ID in AWS                 |
+| <a name="output_exa_resource_ocid"></a> [exa\_resource\_ocid](#output\_exa\_resource\_ocid)                                   | Exadata Infrastructure OCID                      |
+| <a name="output_aws_odb_network_resource_id"></a> [aws\_odb\_network\_resource\_id](#output\_aws\_odb\_network\_resource\_id) | Resource ID of ODB network in AWS                |
+| <a name="output_aws_odb_network_oci_vcn_id"></a> [aws\_odb\_network\_oci\_vcn\_id](#output\_aws\_odb\_network\_oci\_vcn\_id)  | AWS ODB network OCI id                           |
+| <a name="output_odb_peering_connection"></a> [odb\_peering\_connection](#output\_odb\_peering\_connection)                    | ODB Peering Connection                           |
+| <a name="output_vm_cluster_id"></a> [vm\_cluster\_id](#output\_vm\_cluster\_id)                                               | VM Cluster ID                                    |
+| <a name="output_vm_cluster_ocid"></a> [vm\_cluster\_ocid](#output\_vm\_cluster\_ocid)                                         | VM Cluster OCID                                  |
+| <a name="output_db_home_ocid"></a> [db\_home\_ocid](#output\_db\_home\_ocid)                                                  | The OCID of the DB Home                          |
+| <a name="output_cdb_id"></a> [cdb\_id](#output\_cdb\_id)                                                                      | The OCID of the created CDB                      |
+| <a name="output_pdb_id"></a> [pdb\_id](#output\_pdb\_id)                                                                      | The OCID(s) of the created pluggable database(s) |
+<!-- END_TF_DOCS -->
