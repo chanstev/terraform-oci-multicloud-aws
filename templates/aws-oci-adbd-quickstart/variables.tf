@@ -39,30 +39,15 @@ variable "private_key_path" {
   type        = string
 }
 
-variable "subnet_availability_zone" {
-  type        = string
-  description = "AWS subnet availability zone"
-}
-
 variable "availability_zone" {
   type        = string
   description = "OCI resources availability zone"
 }
 
 #==================================AWS VPC vars==============================
-variable "vpc_cidr" {
+variable "vpc_id" {
   type        = string
-  description = "Vpc CIDR range"
-}
-
-variable "vpc_private_subnet_cidr" {
-  type        = string
-  description = "Vpc private CIDR range"
-}
-
-variable "vpc_name" {
-  type        = string
-  description = "Name of vpc inside AWS"
+  description = "VPC ID"
 }
 
 #==================================Exadata infrastructure vars==============================
@@ -89,6 +74,22 @@ variable "compute_count" {
 variable "infra_maintenance_window_preference" {
   type        = string
   description = "Maintenance window preference for the exa infra"
+}
+
+
+variable "infra_maintenance_window_patching_mode" {
+  type        = string
+  description = "Maintenance window patching mode"
+}
+
+variable "infra_maintenance_window_is_custom_action_timeout_enabled" {
+  type        = bool
+  description = "Maintenance window is custom action timeout enabled"
+}
+
+variable "infra_maintenance_window_custom_action_timeout_in_mins" {
+  type        = number
+  description = "Maintenance window custom action timeout in mins"
 }
 
 #==================================ODB network vars==============================

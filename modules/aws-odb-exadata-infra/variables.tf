@@ -39,8 +39,8 @@ variable "maintenance_window" {
   type = object({
     patching_mode                    = string
     preference                       = string
-    is_custom_action_timeout_enabled = optional(bool)
-    custom_action_timeout_in_mins    = optional(number)
+    is_custom_action_timeout_enabled = bool
+    custom_action_timeout_in_mins    = number
     days_of_week = optional(set(object(
       { name = string }
     )))
