@@ -14,6 +14,11 @@ variable "db_name" {
   description = "The name of the database"
 }
 
+variable "autonomous_container_database_id" {
+  type        = string
+  description = "The Autonomous Container Database OCID. Used only by Autonomous Database on Dedicated Exadata Infrastructure."
+}
+
 variable "db_version" {
   type        = string
   description = "The version of the database"
