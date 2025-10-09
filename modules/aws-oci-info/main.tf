@@ -7,9 +7,9 @@ locals {
   }
 
   oci_url = one( concat(
-    data.aws_odb_cloud_exadata_infrastructure.this[0].oci_url,
-    data.aws_odb_cloud_vm_cluster.this[0].oci_url,
-    data.aws_odb_cloud_autonomous_vm_cluster.this[0].oci_url,
+    data.aws_odb_cloud_exadata_infrastructure.this[*].oci_url,
+    data.aws_odb_cloud_vm_cluster.this[*].oci_url,
+    data.aws_odb_cloud_autonomous_vm_cluster.this[*].oci_url,
   ) )
   
   oci_region           = regex("(?i:region=)([^?&/]+)", local.oci_url)[0]
