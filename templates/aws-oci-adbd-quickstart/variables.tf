@@ -16,7 +16,6 @@ variable "aws_secret_key" {
   type        = string
   description = "Aws secret key"
   default     = ""
-
 }
 
 variable "tenancy_ocid" {
@@ -64,11 +63,13 @@ variable "infra_shape" {
 variable "storage_count" {
   type        = string
   description = "Infra storage count"
+  default     = null
 }
 
 variable "compute_count" {
   type        = string
   description = "Infra compute count"
+  default     = null
 }
 
 variable "infra_maintenance_window_preference" {
@@ -95,7 +96,7 @@ variable "infra_maintenance_window_custom_action_timeout_in_mins" {
 #==================================ODB network vars==============================
 variable "network_display_name" {
   type        = string
-  description = "Display name for the autonomous VM cluster"
+  description = "Display name for the ODB Network"
 }
 
 variable "subnet_main_cidr" {
@@ -110,11 +111,13 @@ variable "subnet_backup_cidr" {
 variable "default_dns_prefix" {
   type        = string
   description = "Subnet default dns prefix"
+  default     = null
 }
 
 variable "network_tags" {
   type        = map(string)
   description = "OCI network meta tags"
+  default     = null
 }
 
 variable "network_s3_access" {
@@ -130,6 +133,7 @@ variable "network_zero_etl_access" {
 variable "network_s3_policy_document" {
   type        = string
   description = "s3 policy document as string"
+  default = null
 }
 
 #============================Autonomous VM cluster vars============================
@@ -169,14 +173,14 @@ variable "scan_listener_port_tls" {
   description = "The SCAN listener port for TLS (TCP) protocol"
 }
 
-variable "vm_display_name" {
+variable "avm_display_name" {
   type        = string
-  description = "VM display name"
+  description = "Autonomous VM cluster display name"
 }
 
 variable "db_servers" {
   type        = set(string)
-  description = "The set of database servers IDs to be used for VM cluster"
+  description = "The set of database servers IDs to be used for Autonomous VM cluster"
   default     = null
 }
 
@@ -194,77 +198,35 @@ variable "license_model" {
 
 variable "avmc_maintenance_window_preference" {
   type        = string
-  description = "Maintenance window preference for the AVMC"
+  description = "Maintenance window preference for the Autonomous VM cluster"
 }
+
 #===============================Create Autonomous DB vars=================================
 variable "ad_admin_password" {
   type        = string
-  description = "VM display name"
+  description = "Autonomous DB admin password"
 }
 
 variable "ad_db_name" {
   type        = string
-  description = "VM display name"
+  description = "Autonomous DB name"
 }
 
 variable "ad_compute_count" {
   type        = string
-  description = "VM display name"
+  description = "Autonomous DB compute count"
 }
 
 variable "ad_compute_model" {
   type        = string
-  description = "VM display name"
+  description = "Autonomous DB compute model"
   default = "ECPU"
 }
 
 variable "ad_data_storage_size_in_tbs" {
   type        = number
-  description = "VM display name"
+  description = "Number of data storage size in tbs for the autonomous DB"
 }
-/*
-variable "ad_db_version" {
-  type        = string
-  description = "VM display name"
-  default     = "19c"
-}
-
-variable "ad_db_workload" {
-  type        = string
-  description = "VM display name"
-  default     = "OLTP"
-}
-
-variable "ad_display_name" {
-  type        = string
-  description = "VM display name"
-}
-
-variable "ad_whitelisted_ips" {
-  type        = set(string)
-  description = "VM display name"
-}
-*/
-#===============================Create DB home vars=================================
-/*
-variable "db_home_source" {
-  type        = string
-  description = "DB home source type"
-  default     = "VM_CLUSTER_NEW"
-}
-
-variable "db_version" {
-  type        = string
-  description = "DB version"
-  default     = "19.0.0.0"
-}
-
-variable "db_home_display_name" {
-  type        = string
-  description = "DB home display name"
-  default     = "my_db_home"
-}
-*/
 
 #================================Create autonomous Container Database vars =======================
 
@@ -277,24 +239,4 @@ variable "acd_patch_model" {
   type        = string
   description = "Patch model of the autonomous Container Database"
   default = "RELEASE_UPDATES" #Possible values: RELEASE_UPDATES, RELEASE_UPDATE_REVISIONS
-}
-
-#================================Exadata cdb pdb vars==============================
-
-
-# Container database
-variable "cdb" {
-  type        = map(string)
-  default     = null
-  description = "New container database information object"
-}
-
-# Pluggable database map
-variable "pdbs" {
-  description = "A map encapsulating PDB(s) database details"
-  type = map(object({
-    pdb_name = string
-    pdb_admin_password = string
-    pdb_wallet_password = string
-  }))
 }
