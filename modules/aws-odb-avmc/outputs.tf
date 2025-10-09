@@ -8,6 +8,11 @@ output "avm_cluster_display_name" {
   description = "AVM Cluster Display Name"
 }
 
+output "avm_cluster_id" {
+  value       = aws_odb_cloud_autonomous_vm_cluster.this.id
+  description = "AVM Cluster ID"
+}
+
 output "avm_cluster_ocid" {
   value       = aws_odb_cloud_autonomous_vm_cluster.this.ocid
   description = "AVM Cluster OCID"

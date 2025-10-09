@@ -2,6 +2,10 @@ output "db_name" {
   value = oci_database_autonomous_database.this.display_name
 }
 
+output "db_id" {
+  value = oci_database_autonomous_database.this.id
+}
+
 output "db_state" {
   value = oci_database_autonomous_database.this.state
 }

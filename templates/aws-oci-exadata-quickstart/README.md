@@ -84,4 +84,16 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name                                                                                                                          | Description                                      |
+|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| <a name="output_aws_odb_exa_resource_id"></a> [aws\_odb\_exa\_resource\_id](#output\_aws\_odb\_exa\_resource\_id)             | Exadata Infrastructure ID in AWS                 |
+| <a name="output_exa_resource_ocid"></a> [exa\_resource\_ocid](#output\_exa\_resource\_ocid)                                   | Exadata Infrastructure OCID                      |
+| <a name="output_aws_odb_network_resource_id"></a> [aws\_odb\_network\_resource\_id](#output\_aws\_odb\_network\_resource\_id) | Resource ID of ODB network in AWS                |
+| <a name="output_aws_odb_network_oci_vcn_id"></a> [aws\_odb\_network\_oci\_vcn\_id](#output\_aws\_odb\_network\_oci\_vcn\_id)  | AWS ODB network OCI id                           |
+| <a name="output_odb_peering_connection"></a> [odb\_peering\_connection](#output\_odb\_peering\_connection)                    | ODB Peering Connection                           |
+| <a name="output_vm_cluster_id"></a> [vm\_cluster\_id](#output\_vm\_cluster\_id)                                               | VM Cluster ID                                    |
+| <a name="output_vm_cluster_ocid"></a> [vm\_cluster\_ocid](#output\_vm\_cluster\_ocid)                                         | VM Cluster OCID                                  |
+| <a name="output_db_home_ocid"></a> [db\_home\_ocid](#output\_db\_home\_ocid)                                                  | The OCID of the DB Home                          |
+| <a name="output_cdb_id"></a> [cdb\_id](#output\_cdb\_id)                                                                      | The OCID of the created CDB                      |
+| <a name="output_pdb_id"></a> [pdb\_id](#output\_pdb\_id)                                                                      | The OCID(s) of the created pluggable database(s) |
+<!-- END_TF_DOCS -->

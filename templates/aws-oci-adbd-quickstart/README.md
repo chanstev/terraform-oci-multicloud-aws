@@ -76,4 +76,15 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name                                                                                                                          | Description                       |
+|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| <a name="output_aws_odb_exa_resource_id"></a> [aws\_odb\_exa\_resource\_id](#output\_aws\_odb\_exa\_resource\_id)             | Exadata Infrastructure ID in AWS  |
+| <a name="output_exa_resource_ocid"></a> [exa\_resource\_ocid](#output\_exa\_resource\_ocid)                                   | Exadata Infrastructure OCID       |
+| <a name="output_aws_odb_network_resource_id"></a> [aws\_odb\_network\_resource\_id](#output\_aws\_odb\_network\_resource\_id) | Resource ID of ODB network in AWS |
+| <a name="output_aws_odb_network_oci_vcn_id"></a> [aws\_odb\_network\_oci\_vcn\_id](#output\_aws\_odb\_network\_oci\_vcn\_id)  | AWS ODB network OCI id            |
+| <a name="output_odb_peering_connection"></a> [odb\_peering\_connection](#output\_odb\_peering\_connection)                    | ODB Peering Connection            |
+| <a name="output_avm_cluster_id"></a> [avm\_cluster\_id](#output\_avm\_cluster\_id)                                            | AVM Cluster ID                    |
+| <a name="output_avm_cluster_ocid"></a> [avm\_cluster\_ocid](#output\_avm\_cluster\_ocid)                                      | AVM Cluster OCID                  |
+| <a name="output_acd_id"></a> [acd\_id](#output\_acd\_id)                                                                      | The OCID of the created ACD       |
+| <a name="output_db_id"></a> [aws\_db\_id](#output\_db\_id)                                                                    | The OCID of the created ADBD      |
+<!-- END_TF_DOCS -->

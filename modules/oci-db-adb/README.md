@@ -44,6 +44,7 @@ No modules.
 | Name                                                           | Description                  |
 |----------------------------------------------------------------|------------------------------|
 | <a name="output_db_name"></a> [db\_name](#output\_db\_name)    | Autonomous DB name           |
+| <a name="output_db_id"></a> [db\_id](#output\_db\_id)          | Autonomous DB OCID           |
 | <a name="output_db_state"></a> [db\_state](#output\_db\_state) | Autonomous DB state          |
 | <a name="output_db_conn"></a> [db\_conn](#output\_db\_conn)    | Autonomous DB connection url |
 | <a name="output_password"></a> [password](#output\_password)   | Autonomous DB password       |
