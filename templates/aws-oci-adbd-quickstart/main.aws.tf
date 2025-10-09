@@ -40,7 +40,7 @@ module "network_peering" {
 # Create autonomous VM cluster in OCI
 module "autonomous_vm_cluster" {
   source               = "../../modules/aws-odb-avmc"
-  autonomous_vm_cluster_display_name = var.vm_display_name
+  autonomous_vm_cluster_display_name = var.avm_display_name
   aws_odb_exa_resource_id = module.exadata_infrastructure.exa_resource_ocid
   aws_odb_network_resource_id = module.odb_network.aws_odb_network_resource_id
   autonomous_data_storage_size_in_tbs = var.autonomous_data_storage_size_in_tbs
