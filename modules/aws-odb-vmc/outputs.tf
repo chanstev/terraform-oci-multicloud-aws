@@ -1,29 +1,34 @@
-output "vm_cluster_id" {
+output "resource_id" {
+  description = "VM Cluster ID in AWS"
   value       = aws_odb_cloud_vm_cluster.this.id
-  description = "VM Cluster ID"
 }
 
-output "vm_cluster_display_name" {
-  value       = aws_odb_cloud_vm_cluster.this.display_name
-  description = "VM Cluster Display Name"
+output "resource" {
+  description = "AWS resource object of the VM Cluster"
+  value       = aws_odb_cloud_vm_cluster.this
 }
 
-output "vm_cluster_ocid" {
-  value       = aws_odb_cloud_vm_cluster.this.ocid
-  description = "VM Cluster OCID"
-}
-
-output "vm_cluster_oci_url" {
+output "oci_url" {
+  description = "OCI Console URL of the VM Cluster"
   value       = aws_odb_cloud_vm_cluster.this.oci_url
-  description = "VM Cluster OCI URL"
 }
 
-output "vm_cluster_arn" {
-  value       = aws_odb_cloud_vm_cluster.this.arn
-  description = "VM Cluster ARN"
+output "oci_tenant" {
+  description = "OCI tenant of the VM Cluster"
+  value       = regex("(?:tenant=)([^?&/]+)", aws_odb_cloud_vm_cluster.this.oci_url)[0]
 }
 
-output "vm_cluster_oci_compartment_ocid" {
-  description = "VM Cluster compartment OCID in OCI"
+output "oci_region" {
+  description = "OCI region of the VM Cluster"
+  value       = regex("(?:region=)([^?&/]+)", aws_odb_cloud_vm_cluster.this.oci_url)[0]
+}
+
+output "oci_compartment_ocid" {
+  description = "OCI compartment OCID of the VM Cluster"
   value       = regex("(?:compartmentId=)([^?&/]+)", aws_odb_cloud_vm_cluster.this.oci_url)[0]
+}
+
+output "oci_resource_ocid" {
+  description = "OCID of the VM Cluster in OCI"
+  value       = aws_odb_cloud_vm_cluster.this.ocid
 }

@@ -1,34 +1,35 @@
-output "avm_cluster_arn" {
-  value       = aws_odb_cloud_autonomous_vm_cluster.this.arn
-  description = "AVM Cluster ARN"
+output "resource_id" {
+  value       = aws_odb_cloud_autonomous_vm_cluster.this.id
+  description = "Autonomous VM Cluster ID in AWS"
 }
 
-output "avm_cluster_display_name" {
-  value       = aws_odb_cloud_autonomous_vm_cluster.this.display_name
-  description = "AVM Cluster Display Name"
+output "resource" {
+  value       = aws_odb_cloud_autonomous_vm_cluster.this
+  description = "AWS resource object of the Autonomous VM Cluster"
 }
 
-output "avm_cluster_ocid" {
-  value       = aws_odb_cloud_autonomous_vm_cluster.this.ocid
-  description = "AVM Cluster OCID"
-}
-
-output "avm_cluster_oci_url" {
+output "oci_url" {
   value       = aws_odb_cloud_autonomous_vm_cluster.this.oci_url
-  description = "AVM Cluster OCI URL"
+  description = "OCI Console URL of the Autonomous VM Cluster"
 }
 
-output "avm_cluster_hostname" {
-  value       = aws_odb_cloud_autonomous_vm_cluster.this.hostname
-  description = "AVM Cluster Hostname"
+output "oci_tenant" {
+  description = "OCI tenant of the Autonomous VM Cluster"
+  value       = regex("(?:tenant=)([^?&/]+)", aws_odb_cloud_autonomous_vm_cluster.this.oci_url)[0]
+  
 }
 
-output "avm_cluster_status" {
-  value       = aws_odb_cloud_autonomous_vm_cluster.this.status
-  description = "AVM Cluster Status"
+output "oci_region" {
+  description = "OCI region of the Autonomous VM Cluster"
+  value       = regex("(?:region=)([^?&/]+)", aws_odb_cloud_autonomous_vm_cluster.this.oci_url)[0]
 }
 
-output "avm_cluster_oci_compartment_ocid" {
-  description = "AVM Cluster compartment OCID in OCI"
+output "oci_compartment_ocid" {
+  description = "OCI compartment OCID of the Autonomous VM Cluster"
   value       = regex("(?:compartmentId=)([^?&/]+)", aws_odb_cloud_autonomous_vm_cluster.this.oci_url)[0]
+}
+
+output "oci_resource_ocid" {
+  description = "OCID of the Autonomous VM Cluster in OCI"
+  value       = aws_odb_cloud_autonomous_vm_cluster.this.ocid
 }
