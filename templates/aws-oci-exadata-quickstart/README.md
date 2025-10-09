@@ -1,29 +1,32 @@
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.0 |
-| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb) | 0.0.1 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2.5.1 |
-| <a name="requirement_oci"></a> [oci](#requirement\_oci) | >= 6.15.0 |
+| Name                                                                      | Version   |
+|---------------------------------------------------------------------------|-----------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0    |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws)                   | >= 6.0    |
+| <a name="requirement_aws-odb"></a> [aws-odb](#requirement\_aws-odb)       | 0.0.1     |
+| <a name="requirement_local"></a> [local](#requirement\_local)             | >= 2.5.1  |
+| <a name="requirement_oci"></a> [oci](#requirement\_oci)                   | >= 6.15.0 |
 
 ## Providers
 
-No providers.
+| Name                                              | Version  |
+|---------------------------------------------------|----------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >=6.15.0 |
+| <a name="provider_oci"></a> [oci](#provider\_oci) | n/a      |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc) | aws-ia/vpc/aws | >= 4.2.0 |
-| <a name="module_cdb"></a> [cdb](#module\_cdb) | ../../modules/oci-db-cdb | n/a |
-| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a |
-| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering) | ../../modules/aws-odb-peering | n/a |
-| <a name="module_oci_database_db_home"></a> [oci\_database\_db\_home](#module\_oci\_database\_db\_home) | ../../modules/oci-db-dbhome | n/a |
-| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network) | ../../modules/aws-odb-network | n/a |
-| <a name="module_odb_vm_cluster"></a> [odb\_vm\_cluster](#module\_odb\_vm\_cluster) | ../../modules/aws-odb-vmc | n/a |
-| <a name="module_pdbs"></a> [pdbs](#module\_pdbs) | ../../modules/oci-db-pdb | n/a |
+| Name                                                                                                     | Source                              | Version  |
+|----------------------------------------------------------------------------------------------------------|-------------------------------------|----------|
+| <a name="module_aws_ia_vpc"></a> [aws\_ia\_vpc](#module\_aws\_ia\_vpc)                                   | aws-ia/vpc/aws                      | >= 4.2.0 |
+| <a name="module_cdb"></a> [cdb](#module\_cdb)                                                            | ../../modules/oci-db-cdb            | n/a      |
+| <a name="module_exadata_infrastructure"></a> [exadata\_infrastructure](#module\_exadata\_infrastructure) | ../../modules/aws-odb-exadata-infra | n/a      |
+| <a name="module_network_peering"></a> [network\_peering](#module\_network\_peering)                      | ../../modules/aws-odb-peering       | n/a      |
+| <a name="module_oci_database_db_home"></a> [oci\_database\_db\_home](#module\_oci\_database\_db\_home)   | ../../modules/oci-db-dbhome         | n/a      |
+| <a name="module_odb_network"></a> [odb\_network](#module\_odb\_network)                                  | ../../modules/aws-odb-network       | n/a      |
+| <a name="module_odb_vm_cluster"></a> [odb\_vm\_cluster](#module\_odb\_vm\_cluster)                       | ../../modules/aws-odb-vmc           | n/a      |
+| <a name="module_pdbs"></a> [pdbs](#module\_pdbs)                                                         | ../../modules/oci-db-pdb            | n/a      |
 
 ## Resources
 
