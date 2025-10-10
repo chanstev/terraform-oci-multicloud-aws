@@ -1,8 +1,8 @@
 # Define the Terraform Provider requirements
 
-# oracle/oci is needed for Oracle Database resources
+# oracle/oci is needed for Oracle Cloud Infrastructure resources
 terraform {
   required_providers {
-    oci = { source = "oracle/oci", version = ">= 7.0.0" }
+    oci = { source = "oracle/oci" }
   }
 }
