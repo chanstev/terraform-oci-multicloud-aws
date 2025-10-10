@@ -1,29 +1,3 @@
-module "aws_ia_vpc" {
-  source   = "aws-ia/vpc/aws"
-  version = ">= 4.2.0"
-
-  name                                 = var.vpc_name
-  cidr_block                           = var.vpc_cidr
-  vpc_assign_generated_ipv6_cidr_block = false
-  vpc_egress_only_internet_gateway     = true
-  az_count                             = 1
-  azs = [var.subnet_availability_zone]
-  subnets = {
-    # IPv4 only subnet
-    private = {
-      # omitting name_prefix defaults value to "private"
-      # name_prefix  = "private_with_egress"
-      cidrs      = [var.vpc_private_subnet_cidr]
-      connect_to_public_natgw = true
-    }
-  }
-
-  vpc_flow_logs = {
-    log_destination_type = "cloud-watch-logs"
-    retention_in_days    = 180
-  }
-}
-
 #Create exa data infrastructure
 module "exadata_infrastructure" {
   source                                 = "../../modules/aws-odb-exadata-infra"
@@ -33,7 +7,12 @@ module "exadata_infrastructure" {
   compute_count                          = var.compute_count
   storage_count                          = var.storage_count
   tags                                   = var.tags
-  maintenance_window_preference          = var.infra_maintenance_window_preference
+  maintenance_window          = {
+    patching_mode = var.infra_maintenance_window_patching_mode
+    preference    = var.infra_maintenance_window_preference
+    is_custom_action_timeout_enabled = var.infra_maintenance_window_is_custom_action_timeout_enabled
+    custom_action_timeout_in_mins = var.infra_maintenance_window_custom_action_timeout_in_mins
+  }
 }
 
 #Create odb network
@@ -54,14 +33,14 @@ module "odb_network" {
 module "network_peering" {
   source          = "../../modules/aws-odb-peering"
   odb_network_id  = module.odb_network.aws_odb_network_resource_id
-  peer_network_id = module.aws_ia_vpc.vpc_attributes.id
-  display_name    = "NetworkPeering-${module.odb_network.aws_odb_network_resource_id}-${module.aws_ia_vpc.vpc_attributes.id}"
+  peer_network_id = var.vpc_id
+  display_name    = "NetworkPeering-${module.odb_network.aws_odb_network_resource_id}-${var.vpc_id}"
 }
 
 # Create autonomous VM cluster in OCI
 module "autonomous_vm_cluster" {
   source               = "../../modules/aws-odb-avmc"
-  autonomous_vm_cluster_display_name = var.vm_display_name
+  autonomous_vm_cluster_display_name = var.avm_display_name
   aws_odb_exa_resource_id = module.exadata_infrastructure.exa_resource_ocid
   aws_odb_network_resource_id = module.odb_network.aws_odb_network_resource_id
   autonomous_data_storage_size_in_tbs = var.autonomous_data_storage_size_in_tbs

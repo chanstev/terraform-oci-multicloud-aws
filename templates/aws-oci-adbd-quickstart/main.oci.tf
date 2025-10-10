@@ -1,19 +1,21 @@
-# Create autonomous CDB 
-module "auto_cdb" {
-  source = "../../modules/aws-oci-auto-cdb"
+# Create autonomous Container Database
+module "acd" {
+  source = "../../modules/oci-db-acd"
   depends_on = [ module.autonomous_vm_cluster ]
-  auto_cdb_display_name = var.auto_cdb_display_name
-  auto_cdb_patch_model = var.auto_cdb_patch_model
+  acd_display_name = var.acd_display_name
+  acd_patch_model = var.acd_patch_model
   autonomous_vm_cluster_id = module.autonomous_vm_cluster.avm_cluster_ocid
-  auto_cdb_database_db_name = var.auto_cdb_database_db_name
-  auto_cdb_db_unique_name = var.auto_cdb_db_unique_name
-  auto_cdb_db_version = var.auto_cdb_db_version
-  auto_cdb_db_source = var.auto_cdb_db_source
 }
 
-module "pdbs" {
-  source              = "../../modules/oci-db-pdb"
-  depends_on = [ module.auto_cdb ]
-  container_database_ocid = module.auto_cdb.cdb_id
-  pdb_details = var.pdbs
+# Create the Autonomous Database
+module "adbd" {
+  source              = "../../modules/oci-db-adb"
+  depends_on = [ module.acd ]
+  admin_password                   = var.ad_admin_password
+  compartment_ocid                 = module.exadata_infrastructure.oci_compartment_ocid
+  db_name                          = var.ad_db_name
+  autonomous_container_database_id = module.acd.acd_id
+  compute_model                    = var.ad_compute_model
+  compute_count                    = var.ad_compute_count
+  data_storage_size_in_tbs         = var.ad_data_storage_size_in_tbs
 }

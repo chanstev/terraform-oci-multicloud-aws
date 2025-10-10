@@ -50,6 +50,7 @@ No modules.
 |----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | <a name="output_avm_cluster_arn"></a> [avm\_cluster\_arn](#output\_avm\_cluster\_arn)                                                        | AVM Cluster ARN                     |
 | <a name="output_avm_cluster_display_name"></a> [avm\_cluster\_display\_name](#output\_avm\_cluster\_display\_name)                           | AVM Cluster Display Name            |
+| <a name="output_avm_cluster_id"></a> [avm\_cluster\_id](#output\_avm\_cluster\_id)                                                           | AVM Cluster ID                      |
 | <a name="output_avm_cluster_hostname"></a> [avm\_cluster\_hostname](#output\_avm\_cluster\_hostname)                                         | AVM Cluster Hostname                |
 | <a name="output_avm_cluster_oci_url"></a> [avm\_cluster\_oci\_url](#output\_avm\_cluster\_oci\_url)                                          | AVM Cluster OCI URL                 |
 | <a name="output_avm_cluster_ocid"></a> [avm\_cluster\_ocid](#output\_avm\_cluster\_ocid)                                                     | AVM Cluster OCID                    |

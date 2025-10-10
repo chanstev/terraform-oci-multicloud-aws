@@ -1,5 +1,5 @@
 provider "aws" {
-  region     = var.region
+  region     = var.aws_region
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 }
@@ -9,5 +9,5 @@ provider "oci" {
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
   private_key_path = var.private_key_path
-  region           = var.region
+  region           = module.exadata_infrastructure.oci_region
 }
