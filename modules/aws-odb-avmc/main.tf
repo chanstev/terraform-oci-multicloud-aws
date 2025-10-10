@@ -27,4 +27,10 @@ resource "aws_odb_cloud_autonomous_vm_cluster" "this" {
         preference                       = var.maintenance_window.preference
         weeks_of_month                   = var.maintenance_window.weeks_of_month
   }
+
+  lifecycle {
+    ignore_changes = [
+      maintenance_window
+    ]
+  }
 }
