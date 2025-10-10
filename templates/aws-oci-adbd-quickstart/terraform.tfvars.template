@@ -1,0 +1,76 @@
+# AWS Provider Configuration
+aws_shared_config_files = ["~/.aws/config"]
+aws_profile             = "OCI-Demo"
+
+# Local Variables for AWS
+aws_region           = "us-west-2"
+availability_zone    = "us-west-2c"
+availability_zone_id = "usw2-az3"
+
+# Variables for VPC
+vpc_name                 = "tf-vpc-lzmod"
+vpc_cidr                 = "10.30.0.0/16"
+vpc_workload_subnet_cidr = "10.30.1.0/24"
+
+# Variables for Exadata Infrastructure
+exadata_infrastructure_name          = "exa-inf-lzmod"
+exadata_infrastructure_shape         = "Exadata.X11M"
+exadata_infrastructure_compute_count = 2
+exadata_infrastructure_storage_count = 3
+exadata_infrastructure_maintenance_window = {
+  patching_mode                    = "ROLLING"
+  preference                       = "NO_PREFERENCE"
+  is_custom_action_timeout_enabled = false
+  custom_action_timeout_in_mins    = 15
+}
+
+# Variables for ODB Network
+odb_network_name               = "tf-odb-network-lzmod"
+odb_network_client_subnet_cidr = "10.33.0.0/24"
+odb_network_backup_subnet_cidr = "10.33.1.0/24"
+odb_network_default_dns_prefix = null
+odb_network_s3_access          = "DISABLED"
+odb_network_zero_etl_access    = "DISABLED"
+odb_network_s3_policy_document = null
+
+# Variables for ODB Peering
+odb_peering_connection_display_name = "odbpcx-lzmod"
+odb_peering_connection_peer_network_id = null
+
+# Variables for Autonomous VM Cluster
+avmc_name                                  = "tf-avmc-lzmod"
+avmc_autonomous_data_storage_size_in_tbs   = 5
+avmc_memory_per_oracle_compute_unit_in_gbs = 2
+avmc_total_container_databases             = 1
+avmc_cpu_core_count_per_node               = 40
+avmc_license_model                         = "LICENSE_INCLUDED"
+avmc_is_mtls_enabled_vm_cluster            = false
+avmc_scan_listener_port_non_tls            = 1521
+avmc_scan_listener_port_tls                = 2484
+avmc_maintenance_window = {
+  preference         = "CUSTOM_PREFERENCE"
+  lead_time_in_weeks = 3
+  hours_of_day       = [4, 16]
+  days_of_week       = [{ name = "MONDAY" }, { name = "TUESDAY" }]
+  weeks_of_month     = [2, 4]
+  months             = [{ name = "FEBRUARY" }, { name = "MAY" }, { name = "AUGUST" }, { name = "NOVEMBER" }]
+}
+
+# OCI Provider Configuration
+oci_region = "us-boardman-1"
+oci_auth = "ApiKey"
+oci_user_ocid = "ocid1.user.oc1..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+oci_tenancy_ocid = "ocid1.tenancy.oc1..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+oci_fingerprint = "xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx"
+oci_private_key_path = "your_private_key_path"
+
+# Autonomous Container Database Variables
+acd_display_name = "tf-acd-lzmod"
+acd_patch_model = "RELEASE_UPDATES"
+
+# Autonomous Database Variables
+adb_db_name                  = "adblzmod"
+adb_compute_model            = "ECPU"
+adb_compute_count            = 2
+adb_data_storage_size_in_tbs = 1
+# adb_admin_password           = "your_password_here"
