@@ -2,11 +2,17 @@
 This module provision ODB Peering Connection for Oracle Database@AWS
 
 <!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.15.0 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >=6.15.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 6.15.0 |
 
 ## Modules
 
@@ -14,18 +20,18 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                                           | Type |
-|------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| [aws_odb_network_peering_connection.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/odb_peering_connection) | resource |
+| Name | Type |
+|------|------|
+| [aws_odb_network_peering_connection.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/odb_network_peering_connection) | resource |
 
 ## Inputs
 
-| Name                                                                                | Description | Type | Default | Required |
-|-------------------------------------------------------------------------------------|-------------|------|---------|:--------:|
-| <a name="input_odb_network_id"></a> [odb\_network\_id](#input\odb\_network\_id)     | ID of the ODB Network | `string` | n/a | yes |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_display_name"></a> [display\_name](#input\_display\_name) | Display name of the ODB Peering connection (optional) | `string` | `null` | no |
+| <a name="input_odb_network_id"></a> [odb\_network\_id](#input\_odb\_network\_id) | ID of the ODB Network | `string` | n/a | yes |
 | <a name="input_peer_network_id"></a> [peer\_network\_id](#input\_peer\_network\_id) | ID of VPC of Peer Network | `string` | n/a | yes |
-| <a name="input_display_name"></a> [display\_name](#input\_display\_name)            | Display name of the ODB Peering connection | `string` | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags)                                      | Resource tags for the ODB Peering connection | `map(string)` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | Resource tags for the ODB Peering connection | `map(string)` | `null` | no |
 
 ## Outputs
 
