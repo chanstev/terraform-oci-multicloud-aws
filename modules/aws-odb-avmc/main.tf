@@ -30,7 +30,8 @@ resource "aws_odb_cloud_autonomous_vm_cluster" "this" {
 
   lifecycle {
     ignore_changes = [
-      maintenance_window
+      maintenance_window, 
+      total_container_databases
     ]
   }
 }
