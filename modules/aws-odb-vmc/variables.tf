@@ -113,3 +113,9 @@ variable "scan_listener_port_tcp" {
   description = "The SCAN listener port for TLS (TCP) protocol"
   default     = null
 }
+
+variable "system_version" {
+  type        = string
+  description = "The operating system version of the image chosen for the VM cluster."
+  default     = null
+}
