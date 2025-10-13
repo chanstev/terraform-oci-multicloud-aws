@@ -56,7 +56,7 @@ variable "db_node_storage_size_in_gbs_per_vm" {
   default     = 60
 }
 
-variable "data_storage_size_in_tbs_per_cluster" {
+variable "data_storage_size_in_tbs" {
   type        = number
   description = "The total size of the data storage in TBs to enable for the Exadata VM cluster (optional), default: 2"
   default     = 2

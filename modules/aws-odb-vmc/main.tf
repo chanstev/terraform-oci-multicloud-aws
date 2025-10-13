@@ -29,7 +29,7 @@ resource "aws_odb_cloud_vm_cluster" "this" {
     is_health_monitoring_enabled  = var.is_health_monitoring_enabled
     is_incident_logs_enabled      = var.is_incident_logs_enabled
   }
-  data_storage_size_in_tbs        = var.data_storage_size_in_tbs_per_cluster
+  data_storage_size_in_tbs        = var.data_storage_size_in_tbs
   db_node_storage_size_in_gbs     = local.db_node_storage_size_in_gbs
   db_servers                      = local.db_servers
   tags                            = var.tags
