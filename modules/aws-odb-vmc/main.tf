@@ -3,10 +3,10 @@ locals {
   db_servers = var.db_servers == null ? [for db_server in data.aws_odb_db_servers.this.db_servers : db_server.id] : var.db_servers
 
   # Convert configuration from per VM (as in AWS console) to per cluster (as in Terraform/API)
-  db_server_count = length(local.db_servers)   
-  cpu_core_count = local.db_server_count * var.cpu_core_count_per_vm
-  db_node_storage_size_in_gbs = local.db_server_count * var.db_node_storage_size_in_gbs_per_vm
-  memory_size_in_gbs = local.db_server_count * var.memory_size_in_gbs_per_vm
+  node_count = length(local.db_servers)   
+  cpu_core_count = local.node_count * var.cpu_core_count_per_vm
+  db_node_storage_size_in_gbs = local.node_count * var.db_node_storage_size_in_gbs_per_vm
+  memory_size_in_gbs = local.node_count * var.memory_size_in_gbs_per_vm
 }
 
 # Get list of DB Servers of Exadata Infrastructure
