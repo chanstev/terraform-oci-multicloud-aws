@@ -49,7 +49,7 @@ variable "memory_size_in_gbs_per_vm" {
   description = "The size of memory in GBs to enable per VM for the Exadata VM cluster (optional). Minimum: 30 per VM, default: 30"
   default     = 30
   validation {
-    condition = var.memory_size_in_gbs_per_vm > 30
+    condition = var.memory_size_in_gbs_per_vm >= 30
     error_message = "The minimum memory_size_in_gbs_per_vm is 30"
   }
 }
@@ -59,7 +59,7 @@ variable "db_node_storage_size_in_gbs_per_vm" {
   description = "The size of the database node storage in GBs to enable per VM for the Exadata VM cluster (optional). Minimum: 60 per VM, default: 60"
   default     = 60
   validation {
-    condition = var.db_node_storage_size_in_gbs_per_vm > 60
+    condition = var.db_node_storage_size_in_gbs_per_vm >= 60
     error_message = "The minimum db_node_storage_size_in_gbs_per_vm is 60"
   }
 }
@@ -69,7 +69,7 @@ variable "data_storage_size_in_tbs" {
   description = "The total size of the data storage in TBs to enable for the Exadata VM cluster (optional), default: 2"
   default     = 2
     validation {
-    condition = var.data_storage_size_in_tbs > 2
+    condition = var.data_storage_size_in_tbs >= 2
     error_message = "The minimum data_storage_size_in_tbs is 2"
   }
 }
