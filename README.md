@@ -72,6 +72,7 @@ terraform destroy
 
 ### Terraform Modules
 - [OCI Landing Zones](https://github.com/oci-landing-zones/)
+- [AWS Integration and Automation](https://github.com/aws-ia)
 
 **Acknowledgement:** Code derived adapted from samples, examples and documentations provided by above-mentioned providers.
 
