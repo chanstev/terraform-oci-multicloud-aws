@@ -1,20 +1,9 @@
-output "db_name" {
-  value = oci_database_autonomous_database.this.display_name
+output "oci_resource_ocid" {
+  value       = oci_database_autonomous_database.this.id
+  description = "The OCID of the Autonomous Database"
 }
 
-output "db_id" {
-  value = oci_database_autonomous_database.this.id
-}
-
-output "db_state" {
-  value = oci_database_autonomous_database.this.state
-}
-
-output "db_conn" {
-  value = oci_database_autonomous_database.this.connection_urls
-}
-
-output "password" {
-  value = "The password is ${oci_database_autonomous_database.this.admin_password}"
-  sensitive = true
+output "oci_resource" {
+  value       = oci_database_autonomous_database.this
+  description = "The resource object of the Autonomous Database"
 }

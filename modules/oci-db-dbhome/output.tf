@@ -1,10 +1,9 @@
-output "database_db_home" {
-  description = "The Database DB home"
-  value       = length(oci_database_db_home.this) > 0 ? oci_database_db_home.this[*] : null
-  sensitive = true
+output "oci_resource_ocid" {
+  value       = oci_database_db_home.this.id
+  description = "The OCID of the Database Home"
 }
 
-output "db_home_ocid" {
-  description = "The OCID of the DB Home"
-  value       = oci_database_db_home.this.id
+output "oci_resource" {
+  value       = oci_database_db_home.this
+  description = "The resource object of the Database Home"
 }
