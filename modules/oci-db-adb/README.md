@@ -47,9 +47,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_db_conn"></a> [db\_conn](#output\_db\_conn) | n/a |
-| <a name="output_db_id"></a> [db\_id](#output\_db\_id) | n/a |
-| <a name="output_db_name"></a> [db\_name](#output\_db\_name) | n/a |
-| <a name="output_db_state"></a> [db\_state](#output\_db\_state) | n/a |
-| <a name="output_password"></a> [password](#output\_password) | n/a |
+| <a name="output_oci_resource"></a> [oci\_resource](#output\_oci\_resource) | The resource object of the Autonomous Database |
+| <a name="output_oci_resource_ocid"></a> [oci\_resource\_ocid](#output\_oci\_resource\_ocid) | The OCID of the Autonomous Database |
 <!-- END_TF_DOCS -->
