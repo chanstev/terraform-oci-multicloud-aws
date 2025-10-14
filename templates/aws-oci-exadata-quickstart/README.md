@@ -1,3 +1,6 @@
+# aws-oci-exadata-quickstart
+This is a quick-start template for provisioning an Exadata Database@AWS with ODB network peering to an existing or new VPC.
+
 ## Requirements
 
 | Name                                                                      | Version   |
