@@ -18,7 +18,7 @@ To use the Terraform modules and templates in your environment, you must install
 
 ## Templates
 These module automates the provisioning of components for running Oracle Database@AWS. Each template can run independently and default input values are configured which can be overridden per customer's preferences.
-- [Quickstart for Autonomous Database](./templates/oci-db-adb-quickstart/README.md)
+- [Quickstart for Autonomous Database](./templates/aws-oci-adbd-quickstart/README.md)
 - [Quickstart for Exadata Database](./templates/aws-oci-exadata-quickstart/README.md)
 
 ## Execution
